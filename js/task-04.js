@@ -30,3 +30,5 @@ for (let i = 1; i > 0; i++) {
   console.log(credits);
   break;
 }
+
+Tinycon.setBubble(4);

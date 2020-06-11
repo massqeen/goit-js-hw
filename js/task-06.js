@@ -1,6 +1,7 @@
 let input;
 let total = 0;
 
+
 for (let i = 1; i > 0; i++) {
   input = prompt('Введите любое число');
 
@@ -14,3 +15,5 @@ for (let i = 1; i > 0; i++) {
 
   total += Number(input);
 }
+
+Tinycon.setBubble(6);

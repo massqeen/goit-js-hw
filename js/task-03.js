@@ -2,6 +2,7 @@ const ADMIN_PASSWORD = 'jqueryismyjam';
 let message;
 const passRequest = prompt('Введите пароль администратора');
 
+
 if (passRequest) {
   passRequest === ADMIN_PASSWORD ? (message =
     'Добро пожаловать!') : (message =
@@ -9,3 +10,4 @@ if (passRequest) {
 } else message = 'Отменено пользователем!';
 
 alert(message);
+Tinycon.setBubble(3);

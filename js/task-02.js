@@ -1,5 +1,6 @@
 const ordered = 50;
 const total = 100;
+Tinycon.setBubble(2);
 console.log(`Ваш заказ: ${ordered} единиц`);
 
 if (ordered >= total) {

@@ -61,3 +61,5 @@ switch (country) {
   default:
     alert('В вашей стране доставка не доступна');
 }
+
+Tinycon.setBubble(5);
