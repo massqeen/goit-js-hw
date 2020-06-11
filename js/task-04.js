@@ -1,14 +1,14 @@
 const pricePerDroid = 3000;
 let credits = 23580;
 
-for (let i = 1; i > 0; i++) {
+for (let i = 1; i > 0; i += 1) {
   let droidRequest = prompt('Сколько дроидов вы хотите купить?');
   if (droidRequest === null) {
     console.log('Отменено пользователем');
     break;
   }
 
-  if (isNaN(droidRequest) || Number(droidRequest <= 0)) {
+  if (Number.isNaN(droidRequest) || Number(droidRequest <= 0)) {
     console.log(droidRequest);
     alert('Пожалуйста, введите число больше 0!');
     continue;

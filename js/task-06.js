@@ -2,10 +2,10 @@ let input;
 let total = 0;
 
 
-for (let i = 1; i > 0; i++) {
+for (let i = 1; i > 0; i += 1) {
   input = prompt('Введите любое число');
 
-  if (isNaN(input)) {
+  if (Number.isNaN(input)) {
     alert('Было введено не число, попробуйте еще раз!');
     continue;
   } else if (input === null) {
