@@ -1,9 +1,16 @@
-const ordered = 50;
-const total = 100;
-Tinycon.setBubble(2);
-console.log(`Ваш заказ: ${ordered} единиц`);
+let total,
+  good = document.querySelector('#good-2');
+const button2 = document.querySelector('#button-2'),
+  solution2 = document.querySelector('.solution-2'),
+  approve = 'Заказ оформлен, с вами свяжется менеджер',
+  decline = 'На складе недостаточно товара!';
 
-if (ordered >= total) {
-  console.log(`Ваш заказ: ${ordered} единиц`);
-  console.log('На складе недостаточно товаров!');
-} else console.log('Заказ оформлен, с вами свяжется менеджер');
+button2.addEventListener('click', event => {
+  event.preventDefault();
+
+  Tinycon.setBubble(2);
+
+  let goodQuantity = Number(good.value);
+  total = Math.round(Math.random() * 1000);
+  solution2.textContent = total >= goodQuantity ? approve : decline;
+});

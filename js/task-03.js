@@ -1,13 +1,15 @@
-const ADMIN_PASSWORD = 'jqueryismyjam';
-let message;
-const passRequest = prompt('Введите пароль администратора');
+const ADMIN_PASSWORD = 'jqueryismyjam',
+  button3 = document.querySelector('#button-3'),
+  solution3 = document.querySelector('.solution-3'),
+  approve = 'Добро пожаловать!',
+  decline = 'Доступ запрещен, неверный пароль!';
+let passRequest = document.querySelector('#password');
 
+button3.addEventListener('click', event => {
+  event.preventDefault();
 
-if (passRequest) {
-  passRequest === ADMIN_PASSWORD ? (message =
-    'Добро пожаловать!') : (message =
-    'Доступ запрещен, неверный пароль!');
-} else message = 'Отменено пользователем!';
+  Tinycon.setBubble(3);
 
-alert(message);
-Tinycon.setBubble(3);
+  let password = passRequest.value;
+  solution3.textContent = password === ADMIN_PASSWORD ? approve : decline;
+});

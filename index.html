@@ -1,18 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>JS-HW-02</title>
+		<title>JS-HW-01</title>
 		<link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
 	</head>
 	<body>
+		<header class="header">
+			<h1 class="title">Домашняя работа №1</h1>
+		</header>
+		<main>
+			<section class="task-1">
+				<h2 class="section-title">Задание 1</h2>
+				<form action="#">
+					<fieldset>
+						<legend>Выбор товара</legend>
+						<label for="good-1">Введите название товара</label><br />
+						<input
+							type="text"
+							id="good-1"
+							name="good-1"
+							value="Генератор защитного поля"
+							required
+						/>
+						<button type="submit" id="button-1">Выбрать</button>
+						<br />
+					</fieldset>
+				</form>
+				<div class="solution-1"></div>
+			</section>
+			<section class="task-2">
+				<h2 class="section-title">Задание 2</h2>
+				<form action="#">
+					<fieldset>
+						<legend>Заказ товаров на складе</legend>
+						<label for="good-2"
+							>Введите количество единиц товара для заказа</label
+						><br />
+						<input
+							type="number"
+							id="good-2"
+							name="good-2"
+							value="10"
+							required
+						/>
+						<button type="submit" id="button-2">Заказать</button>
+						<br />
+					</fieldset>
+				</form>
+				<div class="solution-2"></div>
+			</section>
+			<section class="task-3">
+				<h2 class="section-title">Задание 3</h2>
+				<form action="#" method="GET">
+					<fieldset>
+						<legend>Авторизация администратора</legend>
+						<label for="password">Введите пароль администратора!</label><br />
+						<input type="password" id="password" name="password" required />
+						<button type="submit" id="button-3">Подтвердить</button>
+						<br />
+					</fieldset>
+				</form>
+				<div class="solution-3"></div>
+			</section>
+			<section class="task-4"></section>
+			<section class="task-5"></section>
+			<section class="task-6"></section>
+		</main>
 		<script type="module" src="./js/task-01.js"></script>
 		<script type="module" src="./js/task-02.js"></script>
 		<script type="module" src="./js/task-03.js"></script>
-		<script type="module" src="./js/task-04.js"></script>
-		<script type="module" src="./js/task-05.js"></script>
-		<script type="module" src="./js/task-06.js"></script>
+		<!-- <script type="module" src="./js/task-04.js"></script> -->
+		<!-- <script type="module" src="./js/task-05.js"></script> -->
+		<!-- <script type="module" src="./js/task-06.js"></script> -->
 		<script src="./js/tinycon.min.js"></script>
 		<script>
 			Tinycon.setOptions({
