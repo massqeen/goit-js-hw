@@ -1,1 +1,1 @@
-Tinycon.setBubble(6);
+Tinycon.setBubble(1);

@@ -1,0 +1,1 @@
+Tinycon.setBubble(5);
