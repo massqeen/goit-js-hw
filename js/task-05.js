@@ -3,10 +3,6 @@ const button5 = document.getElementById('button-5'),
   solution5 = document.querySelector('.solution-5');
 let price;
 
-// if (country) {
-//   country = country.toLowerCase();
-// }
-
 function capitalizeFirstLetter(string) {
   return string[0].toUpperCase() + string.slice(1);
 }
