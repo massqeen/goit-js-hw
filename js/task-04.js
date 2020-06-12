@@ -1,34 +1,21 @@
-const pricePerDroid = 3000;
-let credits = 23580;
+const droidPrice = 3000,
+  button4 = document.querySelector('#button-4'),
+  solution4 = document.querySelector('.solution-4'),
+  creditsOutput = document.querySelector('.credits'),
+  droidsOutput = document.querySelector('.droids-number'),
+  droidsInput = document.querySelector('#droid');
+let credits = 23580,
+  droids = Number(droidsInput.value);
 
-for (let i = 1; i > 0; i += 1) {
-  let droidRequest = prompt('Сколько дроидов вы хотите купить?');
-  if (droidRequest === null) {
-    console.log('Отменено пользователем');
-    break;
-  }
+button4.addEventListener('click', event => {
+  event.preventDefault();
 
-  if (Number.isNaN(droidRequest) || Number(droidRequest <= 0)) {
-    console.log(droidRequest);
-    alert('Пожалуйста, введите число больше 0!');
-    continue;
-  }
+  Tinycon.setBubble(4);
+  /* prettier-ignore */
+  droids = droids > 0 ? droids : alert('Число дроидов должно быть больше 0!');
 
-  let totalPrice = Number(droidRequest) * pricePerDroid;
-
-  if (totalPrice > credits) {
-    console.log('Недостаточно средств на счету!');
-    break;
-  }
-
-  console.log(
-    `Вы купили ${Number(droidRequest)} дроидов, на счету осталось ${
-      credits - totalPrice
-    } кредитов.`,
-  );
-  credits -= totalPrice;
-  console.log(credits);
-  break;
-}
-
-Tinycon.setBubble(4);
+  // if (credits >= Number(droidsInput.value) * droidPrice) {
+  //   credits -= Number(droidsInput.value) * droidPrice;
+  //   droids = Number(droidsInput.value);
+  // }
+});
