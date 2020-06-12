@@ -1,15 +1,15 @@
 const ADMIN_PASSWORD = 'jqueryismyjam',
-  button3 = document.querySelector('#button-3'),
-  solution3 = document.querySelector('.solution-3'),
   approve = 'Добро пожаловать!',
+  button3 = document.getElementById('button-3'),
   decline = 'Доступ запрещен, неверный пароль!',
-  passRequest = document.querySelector('#password');
+  passwordEl = document.getElementById('password'),
+  solution3 = document.querySelector('.solution-3');
 
 button3.addEventListener('click', event => {
   event.preventDefault();
 
   Tinycon.setBubble(3);
 
-  let password = passRequest.value;
+  let password = passwordEl.value;
   solution3.textContent = password === ADMIN_PASSWORD ? approve : decline;
 });

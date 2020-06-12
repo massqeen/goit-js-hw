@@ -1,21 +1,24 @@
-const droidPrice = 3000,
-  button4 = document.querySelector('#button-4'),
-  solution4 = document.querySelector('.solution-4'),
+const button4 = document.getElementById('button-4'),
   creditsOutput = document.querySelector('.credits'),
+  droidsInput = document.getElementById('droid'),
   droidsOutput = document.querySelector('.droids-number'),
-  droidsInput = document.querySelector('#droid');
+  droidPrice = 3000;
 let credits = 23580,
-  droids = Number(droidsInput.value);
+  droids = 0,
+  droidsTotal = 0;
 
 button4.addEventListener('click', event => {
   event.preventDefault();
+  droids = Number(droidsInput.value);
 
   Tinycon.setBubble(4);
   /* prettier-ignore */
-  droids = droids > 0 ? droids : alert('Число дроидов должно быть больше 0!');
-
-  // if (credits >= Number(droidsInput.value) * droidPrice) {
-  //   credits -= Number(droidsInput.value) * droidPrice;
-  //   droids = Number(droidsInput.value);
-  // }
+  if (droids <= 0) {
+    alert('Число дроидов должно быть больше 0!');
+  } else if (credits >= droids * droidPrice) {
+    credits -= droids * droidPrice;
+    droidsTotal += droids;
+    creditsOutput.textContent = credits;
+    droidsOutput.textContent = droidsTotal;
+  } else alert ('Недостаточно средств на счету!')
 });
