@@ -12,13 +12,15 @@ button4.addEventListener('click', event => {
   droids = Number(droidsInput.value);
 
   Tinycon.setBubble(4);
-  /* prettier-ignore */
-  if (droids <= 0) {
-    alert('Число дроидов должно быть больше 0!');
-  } else if (credits >= droids * droidPrice) {
-    credits -= droids * droidPrice;
-    droidsTotal += droids;
-    creditsOutput.textContent = credits;
-    droidsOutput.textContent = droidsTotal;
-  } else alert ('Недостаточно средств на счету!')
+  debugger;
+  if (droids <= 0 || Number.isNaN(droids)) {
+    alert('Пожалуйста, введите число больше 0!');
+  } else if (Number.isInteger(droids)) {
+    if (credits >= droids * droidPrice) {
+      credits -= droids * droidPrice;
+      droidsTotal += droids;
+      creditsOutput.textContent = credits;
+      droidsOutput.textContent = droidsTotal;
+    } else alert('Недостаточно средств на счету!');
+  } else alert('Извините, мы не продаем дроидов по частям!');
 });
