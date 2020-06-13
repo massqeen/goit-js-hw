@@ -16,5 +16,7 @@ button2.addEventListener('click', event => {
     let goodQuantity = Number(goodEl.value);
     total = Math.round(Math.random() * 1000);
     solution2.textContent = total >= goodQuantity ? approve : decline;
-  } else alert('Нужно ввести целое число, пожалуйста, повторите ввод!');
+  } else {
+    alert('Нужно ввести целое число, пожалуйста, повторите ввод!');
+  }
 });

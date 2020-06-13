@@ -18,37 +18,37 @@ button5.addEventListener('click', event => {
   switch (country) {
     case 'китай':
       price = 100;
-      solution5.textContent = `Доставка в ${capitalizeFirstLetter(
-        country,
-      )} будет стоить ${price} кредитов`;
+      solution5.textContent = `Доставка в 
+      ${capitalizeFirstLetter(country)} будет 
+      стоить ${price} кредитов`;
       break;
 
     case 'чили':
       price = 250;
-      solution5.textContent = `Доставка в ${capitalizeFirstLetter(
-        country,
-      )} будет стоить ${price} кредитов`;
+      solution5.textContent = `Доставка в 
+      ${capitalizeFirstLetter(country)} будет 
+      стоить ${price} кредитов`;
       break;
 
     case 'австралия':
       price = 170;
-      solution5.textContent = `Доставка в ${capitalizeFirstLetter(
-        country,
-      )} будет стоить ${price} кредитов`;
+      solution5.textContent = `Доставка в 
+      ${capitalizeFirstLetter(country)} будет 
+      стоить ${price} кредитов`;
       break;
 
     case 'индия':
       price = 80;
-      solution5.textContent = `Доставка в ${capitalizeFirstLetter(
-        country,
-      )} будет стоить ${price} кредитов`;
+      solution5.textContent = `Доставка в 
+      ${capitalizeFirstLetter(country)} будет 
+      стоить ${price} кредитов`;
       break;
 
     case 'ямайка':
       price = 120;
-      solution5.textContent = `Доставка в ${capitalizeFirstLetter(
-        country,
-      )} будет стоить ${price} кредитов`;
+      solution5.textContent = `Доставка в 
+      ${capitalizeFirstLetter(country)} будет 
+      стоить ${price} кредитов`;
       break;
 
     default:
