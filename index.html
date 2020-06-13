@@ -77,7 +77,7 @@
           <fieldset>
             <legend>Покупка ремонтных дроидов</legend>
             <label for="">Введите количество дроидов для покупки:</label><br />
-            <input type="number" id="droid" name="droid" value="11" required />
+            <input type="number" id="droid" name="droid" value="1" required />
             <button type="submit" id="button-4">Купить</button>
             <br />
           </fieldset>
@@ -91,34 +91,56 @@
         </p>
       </section>
       <section class="task-5">
-        <section class="task-5">
-          <h2 class="section-title">Задание 5</h2>
-          <form action="#">
-            <fieldset>
-              <legend>Оформление адресной доставки</legend>
-              <label for="country">Введите страну для доставки товара:</label><br />
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value="Китай"
-                minlength="2"
-                required
-              />
-              <button type="submit" id="button-5">Заказать</button>
-              <br />
-            </fieldset>
-          </form>
-          <div class="solution-5"></div>
+        <h2 class="section-title">Задание 5</h2>
+        <form action="#">
+          <fieldset>
+            <legend>Оформление адресной доставки</legend>
+            <label for="country">Введите страну для доставки товара:</label
+            ><br />
+            <input
+              type="text"
+              id="country"
+              name="country"
+              value="Китай"
+              minlength="2"
+              required
+            />
+            <button type="submit" id="button-5">Заказать</button>
+            <br />
+          </fieldset>
+        </form>
+        <div class="solution-5"></div>
       </section>
-      <section class="task-6"></section>
+      <section class="task-6">
+        <h2 class="section-title">Задание 6</h2>
+        <form action="#">
+          <fieldset>
+            <legend>Сумма чисел</legend>
+            <label
+              >Нажмите на кнопку и в появившемся окне последовательно введите
+              числа для суммирования:</label
+            ><br />
+            <button
+              type="submit"
+              id="button-6"
+              style="padding: 5px 10px; margin-top: 10px;"
+            >
+              Начать ввод чисел
+            </button>
+            <br />
+          </fieldset>
+        </form>
+        <div class="solution-6">
+          Сумма введенных чисел: <span class="total-sum"></span>
+        </div>
+      </section>
     </main>
     <script type="module" src="./js/task-01.js"></script>
     <script type="module" src="./js/task-02.js"></script>
     <script type="module" src="./js/task-03.js"></script>
     <script type="module" src="./js/task-04.js"></script>
     <script type="module" src="./js/task-05.js"></script>
-    <!-- <script type="module" src="./js/task-06.js"></script> -->
+    <script type="module" src="./js/task-06.js"></script>
     <script src="./js/tinycon.min.js"></script>
     <script>
       Tinycon.setOptions({
