@@ -8,7 +8,7 @@ button6.addEventListener('click', event => {
   event.preventDefault();
   Tinycon.setBubble(6);
 
-  for (let i = 1; i > 0; i = i + 1) {
+  for (let i = 1; i > 0; i += 1) {
     let cancelCheck = prompt(checkMessage);
     input = Number(cancelCheck);
 
@@ -19,7 +19,7 @@ button6.addEventListener('click', event => {
       break;
     }
 
-    total = total + input;
+    total += input;
     totalSum.textContent = total;
   }
 });

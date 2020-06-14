@@ -17,12 +17,13 @@ button4.addEventListener('click', event => {
     alert('Пожалуйста, введите число больше 0!');
   } else if (Number.isInteger(droids)) {
     if (credits >= droids * droidPrice) {
-      credits = credits - droids * droidPrice;
-      droidsTotal = droidsTotal + droids;
+      credits -= droids * droidPrice;
+      droidsTotal += droids;
       creditsOutput.textContent = credits;
       droidsOutput.textContent = droidsTotal;
+      creditsOutput.style.color = credits < 3000 ? '#E52F20' : '#000';
     } else {
-      alert('Недостаточно средств на счету!');
+      alert('На вашем счете недостаточно кредитов :(');
     }
   } else {
     alert('Извините, мы не продаем дроидов по частям!');
