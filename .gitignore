@@ -1,6 +1,6 @@
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
+.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
@@ -9,6 +9,10 @@
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+### Webstorm ###
+# User-specific stuff
+.idea/
 
 ### Windows ###
 # Windows thumbnail cache files
