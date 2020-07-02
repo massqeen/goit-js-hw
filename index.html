@@ -48,6 +48,7 @@
               name="phrase"
               required
               type="text"
+              minlength="1"
               style="min-width: 400px;"
             />
             <button id="button-2" type="submit">Заказать</button>
@@ -59,22 +60,30 @@
 
       <section class="task-3">
         <h2 class="section-title">Задание 3</h2>
-        <form action="#" method="GET">
+        <form action="#">
           <fieldset>
-            <legend>Авторизация администратора</legend>
-            <label for="password">Введите пароль администратора:</label><br />
+            <legend>Самое длинное слово</legend>
+            <label for="string-3"
+              >Введите любую фразу или предложение (слова должны быть разделены
+              только пробелами):</label
+            ><br />
             <input
-              autocomplete="current-password"
-              id="password"
-              name="password"
+              id="string-3"
+              name="string-3"
               required
-              type="password"
+              type="text"
+              minlength="1"
+              style="min-width: 400px;"
             />
             <button id="button-3" type="submit">Подтвердить</button>
             <br />
           </fieldset>
         </form>
-        <div class="solution-3"></div>
+        <div class="solution-3">
+          <span class="answer-description"></span>
+          <span class="answer-words"></span>
+          <span class="answer-words-length"></span>
+        </div>
       </section>
 
       <section class="task-4">
@@ -144,6 +153,7 @@
         </div>
       </section>
     </main>
+    <script src="./js/tinycon.min.js"></script>
     <script>
       Tinycon.setOptions({
         width: 6,
@@ -151,12 +161,11 @@
         background: '#549a2f',
       });
     </script>
-    <!--    <script src="./js/task-01.js" type="module"></script>-->
-    <script type="module" src="./js/task-02.js"></script>
-    <!--<script type="module" src="./js/task-03.js"></script>-->
+    <!--<script type="module" src="./js/task-01.js"></script>-->
+    <!--<script type="module" src="./js/task-02.js"></script>-->
+    <script type="module" src="./js/task-03.js"></script>
     <!--<script type="module" src="./js/task-04.js"></script>-->
     <!--<script type="module" src="./js/task-05.js"></script>-->
     <!--<script type="module" src="./js/task-06.js"></script>-->
-    <script src="./js/tinycon.min.js"></script>
   </body>
 </html>
