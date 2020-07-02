@@ -1,4 +1,5 @@
 const button2 = document.getElementById('button-2'),
+  phrase = document.getElementById('phrase'),
   solution2 = document.querySelector('.solution-2');
 
 button2.addEventListener('click', event => {
@@ -6,16 +7,10 @@ button2.addEventListener('click', event => {
 
   Tinycon.setBubble(2);
 
-  // const logItems = array => {
-  //   const arrayResult = [];
-  //   for (let i = 0; i < array.length; i += 1) {
-  //     let output = `${i + 1} - ${array[i]}`;
-  //     arrayResult.push(output);
-  //   }
-  //   return arrayResult.join(', ');
-  // };
-  // const result1 = logItems(arrayNames);
-  // solution1.insertAdjacentHTML('beforeend', `<p>${result1};</p>`);
-  // const result2 = logItems(arrayNumbers);
-  // solution1.insertAdjacentHTML('beforeend', `<p>${result2};</p>`);
+  const calculateEngravingPrice = () => {
+    const pricePerWord = Math.round(Math.random() * 1000);
+    const engravingPrice = pricePerWord * phrase.value.split(' ').length;
+    return `Цена за 1 слово: ${pricePerWord} грн, итоговая сумма к оплате: ${engravingPrice} грн. Спасибо за заказ!`;
+  };
+  solution2.textContent = calculateEngravingPrice();
 });
