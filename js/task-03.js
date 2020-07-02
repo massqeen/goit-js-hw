@@ -23,23 +23,23 @@ button3.addEventListener('click', (event) => {
         longestWords.push(word);
       }
     }
-    const longestString = longestWords.join(', ') + '; ';
+
     if (longestWords.length > 1) {
       return [
         'Самые длинные слова в вашей фразе: ',
-        longestString,
+        longestWords.join(', ') + '; ',
         `их длина равна ${longestWord.length} символам.`
       ];
     }
     return [
       'Самое длинное слово в вашей фразе: ',
-      longestString,
+      longestWord + '; ',
       `его длина равна ${longestWord.length} символам.`
     ];
   };
   const resultArray = findLongestWord();
+  answerWords.style.color = '#2ac940';
   answerDescription.textContent = resultArray[0];
   answerWords.textContent = resultArray[1];
   answerWordsLength.textContent = resultArray[2];
-  answerWords.style.color = '266d07';
 });
