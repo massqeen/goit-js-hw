@@ -9,12 +9,15 @@ button5.addEventListener('click', (event) => {
 
   const checkForSpam = () => {
     const array = spam.value.toLowerCase().split(' ');
-    return array.includes('spam') || array.includes('sale');
+    const wordsToCheck = ['spam', 'sale', 'спам', 'распродажа'];
+    for (const word of wordsToCheck) {
+      if (array.includes(word)) {
+        return true;
+      }
+    }
   };
 
-  if (checkForSpam()) {
-    solution5.textContent = 'Обнаружен спам!';
-  } else {
-    solution5.textContent = 'Ура, спама нет!';
-  }
+  solution5.textContent = checkForSpam()
+    ? 'Обнаружен спам!'
+    : 'Ура, спама нет!';
 });
