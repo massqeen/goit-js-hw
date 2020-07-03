@@ -15,6 +15,7 @@ button5.addEventListener('click', (event) => {
         return true;
       }
     }
+    return false;
   };
 
   solution5.textContent = checkForSpam()
