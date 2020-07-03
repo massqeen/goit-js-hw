@@ -113,7 +113,14 @@
           <fieldset>
             <legend>Проверка на 'spam' и 'sale'</legend>
             <label for="spam">Введите фразу для проверки:</label><br />
-            <input id="spam" minlength="1" name="spam" required type="text" />
+            <input
+              id="spam"
+              minlength="1"
+              name="spam"
+              required
+              type="text"
+              style="min-width: 400px;"
+            />
             <button id="button-5" type="submit">Проверить</button>
             <br />
           </fieldset>
@@ -144,6 +151,19 @@
           Общая сумма чисел равна: <span class="total-sum"></span>
         </div>
       </section>
+      <section class="task-7">
+        <h2 class="section-title">Задание 7</h2>
+        <form action="#">
+          <fieldset>
+            <legend>Добавление логина</legend>
+            <label for="login">Введите желаемый логин:</label><br />
+            <input id="login" minlength="1" name="login" required type="text" />
+            <button id="button-7" type="submit">Подтвердить</button>
+            <br />
+          </fieldset>
+        </form>
+        <div class="solution-7"></div>
+      </section>
     </main>
     <script src="./js/tinycon.min.js"></script>
     <script>
@@ -159,5 +179,6 @@
     <!--<script type="module" src="./js/task-04.js"></script>-->
     <!--<script type="module" src="./js/task-05.js"></script>-->
     <script type="module" src="./js/task-06.js"></script>
+    <script type="module" src="./js/task-07.js"></script>
   </body>
 </html>
