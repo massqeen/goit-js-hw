@@ -19,7 +19,7 @@ const cart = {
     return this.items;
   },
 
-  addProduct(product) {
+  add(product) {
     for (const item of this.items) {
       if (item.name === product.name) {
         item.quantity += 1;

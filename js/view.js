@@ -1,9 +1,9 @@
 import cart from './cart.js';
-cart.addProduct({ name: 'apple', price: 50 });
-cart.addProduct({ name: 'lemon', price: 60 });
-cart.addProduct({ name: 'lemon', price: 60 });
-cart.addProduct({ name: 'grapes', price: 70 });
-cart.addProduct({ name: 'strawberry', price: 110 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'grapes', price: 70 });
+cart.add({ name: 'apple', price: 50 });
+cart.add({ name: 'strawberry', price: 110 });
 cart.increaseQuantity('grapes');
 cart.decreaseQuantity('apple');
 // cart.remove('lemon');
