@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>JS-HW-02</title>
+    <title>JS-cart</title>
     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
   <body>
     <header class="header">
-      <h1 class="title">Домашняя работа №2</h1>
+      <h1 class="title">Cart</h1>
     </header>
     <main>
       <section class="task-1">
@@ -57,113 +57,6 @@
         </form>
         <div class="solution-2"></div>
       </section>
-
-      <section class="task-3">
-        <h2 class="section-title">Задание 3</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Самое длинное слово</legend>
-            <label for="string-3"
-              >Введите любую фразу или предложение (слова должны быть разделены
-              только пробелами):</label
-            ><br />
-            <input
-              id="string-3"
-              name="string-3"
-              required
-              type="text"
-              minlength="1"
-              style="min-width: 400px;"
-            />
-            <button id="button-3" type="submit">Подтвердить</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-3">
-          <span class="answer-description"></span>
-          <span class="answer-words"></span>
-          <span class="answer-words-length"></span>
-        </div>
-      </section>
-
-      <section class="task-4">
-        <h2 class="section-title">Задание 4</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Не более 40 символов</legend>
-            <label for="symbols">Введите любые данные:</label><br />
-            <input
-              id="symbols"
-              name="symbols"
-              required
-              type="text"
-              minlength="1"
-              style="min-width: 400px;"
-            />
-            <button id="button-4" type="submit">Подтвердить</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-4"></div>
-      </section>
-
-      <section class="task-5">
-        <h2 class="section-title">Задание 5</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Проверка на 'spam' и 'sale'</legend>
-            <label for="spam">Введите фразу для проверки:</label><br />
-            <input
-              id="spam"
-              minlength="1"
-              name="spam"
-              required
-              type="text"
-              style="min-width: 400px;"
-            />
-            <button id="button-5" type="submit">Проверить</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-5"></div>
-      </section>
-
-      <section class="task-6">
-        <h2 class="section-title">Задание 6</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Сумма чисел</legend>
-            <label
-              >Нажмите на кнопку и в появившемся окне последовательно введите
-              числа для суммирования:</label
-            ><br />
-            <button
-              id="button-6"
-              style="padding: 5px 10px; margin-top: 10px;"
-              type="submit"
-            >
-              Начать ввод чисел
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-6">
-          Общая сумма чисел равна: <span class="total-sum"></span>
-        </div>
-      </section>
-      <section class="task-7">
-        <h2 class="section-title">Задание 7</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Добавление логина</legend>
-            <label for="login">Введите желаемый логин:</label><br />
-            <input id="login" minlength="1" name="login" required type="text" />
-            <button id="button-7" type="submit">Подтвердить</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-7"></div>
-      </section>
     </main>
     <script src="./js/tinycon.min.js"></script>
     <script>
@@ -175,10 +68,5 @@
     </script>
     <script type="module" src="./js/task-01.js"></script>
     <script type="module" src="./js/task-02.js"></script>
-    <script type="module" src="./js/task-03.js"></script>
-    <script type="module" src="./js/task-04.js"></script>
-    <script type="module" src="./js/task-05.js"></script>
-    <script type="module" src="./js/task-06.js"></script>
-    <script type="module" src="./js/task-07.js"></script>
   </body>
 </html>
