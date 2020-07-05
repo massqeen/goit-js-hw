@@ -55,25 +55,22 @@ const cart = {
     return total;
   },
 
-  increaseQuantity(product) {
+  changeQuantity(productName, quantityIncrement) {
     for (const item of this.items) {
-      if (product === item.name) {
-        item.quantity += 1;
-        console.log('Количество увеличено');
-        return;
+      if (quantityIncrement > 0) {
+        if (productName === item.name) {
+          item.quantity += quantityIncrement;
+          console.log('Количество увеличено');
+          return;
+        }
       }
-    }
-  },
-
-  decreaseQuantity(product) {
-    for (const item of this.items) {
-      if (product === item.name) {
+      if (productName === item.name) {
         if (item.quantity === 1) {
-          this.remove(product);
+          this.remove(productName);
           console.log('Продукт удален из корзины');
           return;
         }
-        item.quantity -= 1;
+        item.quantity += quantityIncrement;
         console.log('Количество уменьшено');
         return;
       }
