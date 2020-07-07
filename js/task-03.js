@@ -1,45 +1,44 @@
-const answerDescription = document.querySelector('.answer-description'),
-  answerWords = document.querySelector('.answer-words'),
-  answerWordsLength = document.querySelector('.answer-words-length'),
-  button3 = document.getElementById('button-3'),
-  string = document.getElementById('string-3');
+const button3 = document.getElementById('button-3'),
+  buttonSolve = document.getElementById('button-3-1'),
+  solution3 = document.querySelector('.solution-3'),
+  test = {
+    ann: 22,
+    david: 22,
+    helen: 1,
+    lorence: 0
+  };
+let nameEmployee = document.getElementById('nameEmployee'),
+  tasksEmployee = document.getElementById('tasksEmployee');
 
-const findLongestWord = () => {
-  const words = string.value.split(' ');
-  let longestWord = '';
-  const longestWords = [];
+const findBestEmployee = (obj) => {
+  let bestEmployees = [],
+    maxTasks = 0;
 
-  for (const word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
-      longestWords.splice(0, 100, longestWord);
-    }
-    if (word.length === longestWord.length && word !== longestWord) {
-      longestWords.push(word);
+  for (const entry of Object.entries(obj)) {
+    if (maxTasks < entry[1]) {
+      bestEmployees = [];
+      maxTasks = entry[1];
+      bestEmployees.push(entry[0]);
+    } else if (maxTasks === entry[1]) {
+      bestEmployees.push(entry[0]);
     }
   }
-
-  if (longestWords.length > 1) {
+  if (bestEmployees.length > 1) {
     return [
-      'Самые длинные слова в вашей фразе: ',
-      longestWords.join(', ') + '; ',
-      `их длина равна ${longestWord.length} символам.`
+      'Самые продуктивные сотрудники: ',
+      bestEmployees.join(', ') + '; ',
+      `выполнено ${maxTasks} задач.`
     ];
   }
   return [
-    'Самое длинное слово в вашей фразе: ',
-    longestWord + '; ',
-    `его длина равна ${longestWord.length} символам.`
+    'Самый продуктивный сотрудник: ',
+    bestEmployees.join(', ') + '; ',
+    `выполнено ${maxTasks} задач.`
   ];
 };
 
-button3.addEventListener('click', (event) => {
-  event.preventDefault();
-  Tinycon.setBubble(3);
-
-  const resultArray = findLongestWord();
-  answerWords.style.color = '#2ac940';
-  answerDescription.textContent = resultArray[0];
-  answerWords.textContent = resultArray[1];
-  answerWordsLength.textContent = resultArray[2];
-});
+console.log(findBestEmployee(test));
+// button3.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   Tinycon.setBubble(3);
+// });

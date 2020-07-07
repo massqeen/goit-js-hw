@@ -58,28 +58,33 @@
         <h2 class="section-title">Задание 3</h2>
         <form action="#">
           <fieldset>
-            <legend>Самое длинное слово</legend>
-            <label for="string-3"
-              >Введите любую фразу или предложение (слова должны быть разделены
-              только пробелами):</label
+            <legend>Самый продуктивный сотрудник</legend>
+            <label for="nameEmployee"
+              >Введите имя сотрудника (должно быть уникально)</label
             ><br />
             <input
-              id="string-3"
-              name="string-3"
+              id="nameEmployee"
+              name="nameEmployee"
               required
               type="text"
-              minlength="1"
-              style="min-width: 400px;"
+              minlength="2"
             />
-            <button id="button-3" type="submit">Подтвердить</button>
+            <label for="tasksEmployee"
+              >Введите количество выполненных сотрудником задач</label
+            ><br />
+            <input
+              id="tasksEmployee"
+              name="tasksEmployee"
+              required
+              type="number"
+              minlength="1"
+            />
+            <button id="button-3" type="submit">Внести данные</button>
             <br />
           </fieldset>
         </form>
-        <div class="solution-3">
-          <span class="answer-description"></span>
-          <span class="answer-words"></span>
-          <span class="answer-words-length"></span>
-        </div>
+        <button id="button-3-1">Определить лучшего</button>
+        <div class="solution-3"></div>
       </section>
 
       <section class="task-4">
