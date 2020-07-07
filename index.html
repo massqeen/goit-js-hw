@@ -59,8 +59,15 @@
         <form action="#">
           <fieldset>
             <legend>Самый продуктивный сотрудник</legend>
+            <p>
+              Внесите данные по всем своим сотрудникам: занесите в форму имя
+              сотрудника и количество выполненных им задач, затем нажмите
+              "Внести данные". Процедуру необходимо повторить для каждого
+              сотрудника. Для определения лучшего сотрудника нажмите "Определить
+              лучшего"
+            </p>
             <label for="nameEmployee"
-              >Введите имя сотрудника (должно быть уникально)</label
+              >Введите имя сотрудника (должно быть уникально):</label
             ><br />
             <input
               id="nameEmployee"
@@ -68,9 +75,9 @@
               required
               type="text"
               minlength="2"
-            />
+            /><br />
             <label for="tasksEmployee"
-              >Введите количество выполненных сотрудником задач</label
+              >Введите количество выполненных сотрудником задач:</label
             ><br />
             <input
               id="tasksEmployee"
@@ -78,12 +85,16 @@
               required
               type="number"
               minlength="1"
-            />
-            <button id="button-3" type="submit">Внести данные</button>
+            /><br />
+            <button id="button-3" type="submit" style="margin-top: 10px;">
+              Внести данные
+            </button>
             <br />
           </fieldset>
         </form>
-        <button id="button-3-1">Определить лучшего</button>
+        <button id="button-3-1" style="margin-top: 10px;">
+          Определить лучшего
+        </button>
         <div class="solution-3"></div>
       </section>
 

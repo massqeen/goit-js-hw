@@ -1,13 +1,8 @@
 const button3 = document.getElementById('button-3'),
   buttonSolve = document.getElementById('button-3-1'),
+  employees = {},
+  nameEmployee = document.getElementById('nameEmployee'),
   solution3 = document.querySelector('.solution-3'),
-  test = {
-    ann: 22,
-    david: 22,
-    helen: 1,
-    lorence: 0
-  };
-let nameEmployee = document.getElementById('nameEmployee'),
   tasksEmployee = document.getElementById('tasksEmployee');
 
 const findBestEmployee = (obj) => {
@@ -17,9 +12,9 @@ const findBestEmployee = (obj) => {
   for (const entry of Object.entries(obj)) {
     if (maxTasks < entry[1]) {
       bestEmployees = [];
-      maxTasks = entry[1];
+      maxTasks = +entry[1];
       bestEmployees.push(entry[0]);
-    } else if (maxTasks === entry[1]) {
+    } else if (maxTasks === +entry[1]) {
       bestEmployees.push(entry[0]);
     }
   }
@@ -36,9 +31,19 @@ const findBestEmployee = (obj) => {
     `выполнено ${maxTasks} задач.`
   ];
 };
+button3.addEventListener('click', (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(3);
+  employees[nameEmployee.value] = tasksEmployee.value;
+  console.log(employees);
+});
 
-console.log(findBestEmployee(test));
-// button3.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   Tinycon.setBubble(3);
-// });
+buttonSolve.addEventListener('click', () => {
+  const resultArray = findBestEmployee(employees);
+
+  solution3.insertAdjacentHTML(
+    'beforeend',
+    `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
+  );
+  document.querySelector('.task3-span').style.color = '#2ac940';
+});
