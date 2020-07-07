@@ -16,17 +16,19 @@
         <h2 class="section-title">Задание 1</h2>
         <form action="#">
           <fieldset>
-            <legend>Номер элемента в массиве</legend>
-            <label
-              >Нажмите на кнопку, чтобы получить пронумерованные элементы
-              заданных массивов</label
+            <legend>Изменение и вывод данных объекта user</legend>
+            <label for="user-name">Введите желаемое имя пользователя</label
             ><br />
-            <button
-              id="button-1"
-              style="padding: 5px 10px; margin-top: 10px;"
-              type="submit"
-            >
-              Получить
+            <input
+              id="user-name"
+              name="user-name"
+              required
+              type="text"
+              minlength="1"
+              value="Poly"
+            />
+            <button id="button-1" type="submit">
+              Получить данные
             </button>
             <br />
           </fieldset>
