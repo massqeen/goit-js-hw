@@ -13,6 +13,7 @@ button1.addEventListener('click', (event) => {
   event.preventDefault();
   Tinycon.setBubble(1);
 
+  solution1.textContent = '';
   user.name = userName.value;
   user.mood = 'happy';
   user.hobby = 'skydiving';
