@@ -1,16 +1,14 @@
 const button2 = document.getElementById('button-2'),
-  phrase = document.getElementById('phrase'),
+  object = { mail: 'poly@mail.com', isOnline: true, score: 500 },
   solution2 = document.querySelector('.solution-2');
 
-const calculateEngravingPrice = () => {
-  const pricePerWord = Math.round(Math.random() * 1000);
-  const engravingPrice = pricePerWord * phrase.value.split(' ').length;
-  return `Цена за 1 слово: ${pricePerWord} грн, итоговая сумма к оплате: ${engravingPrice} грн. Спасибо за заказ!`;
+const countProps = (obj) => {
+  return Object.values(obj).length;
 };
 
 button2.addEventListener('click', (event) => {
   event.preventDefault();
   Tinycon.setBubble(2);
 
-  solution2.textContent = calculateEngravingPrice();
+  solution2.textContent = `В объекте ${countProps(object)} свойств`;
 });
