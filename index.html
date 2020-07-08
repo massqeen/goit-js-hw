@@ -59,7 +59,7 @@
         <form action="#">
           <fieldset>
             <legend>Самый продуктивный сотрудник</legend>
-            <p>
+            <p style="max-width: 700px;">
               Внесите данные по всем своим сотрудникам: занесите в форму имя
               сотрудника и количество выполненных им задач, затем нажмите
               "Внести данные". Процедуру необходимо повторить для каждого
@@ -102,20 +102,41 @@
         <h2 class="section-title">Задание 4</h2>
         <form action="#">
           <fieldset>
-            <legend>Не более 40 символов</legend>
-            <label for="symbols">Введите любые данные:</label><br />
+            <legend>Сумма зарплаты работников</legend>
+            <p style="max-width: 700px;">
+              Внесите данные по всем своим сотрудникам: занесите в форму имя
+              сотрудника и его зарплату, затем нажмите "Внести данные".
+              Процедуру необходимо повторить для каждого сотрудника. Для
+              определения общей суммы зарплаты нажмите "Вычислить"
+            </p>
+            <label for="nameEmployee"
+              >Введите имя сотрудника (должно быть уникально):</label
+            ><br />
             <input
-              id="symbols"
-              name="symbols"
+              id="nameEmployeeTask4"
+              name="nameEmployee"
               required
               type="text"
+              minlength="2"
+            /><br />
+            <label for="salaryEmployee">Введите зарплату сотрудника:</label
+            ><br />
+            <input
+              id="salaryEmployee"
+              name="salaryEmployee"
+              required
+              type="number"
               minlength="1"
-              style="min-width: 400px;"
-            />
-            <button id="button-4" type="submit">Подтвердить</button>
+            /><br />
+            <button id="button-4" type="submit" style="margin-top: 10px;">
+              Внести данные
+            </button>
             <br />
           </fieldset>
         </form>
+        <button id="button-4-1" style="margin-top: 10px;">
+          Вычислить
+        </button>
         <div class="solution-4"></div>
       </section>
 
