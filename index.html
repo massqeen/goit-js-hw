@@ -170,27 +170,33 @@
 
       <section class="task-6">
         <h2 class="section-title">Задание 6</h2>
+        <p>В исходном массиве содержатся следующие объекты:</p>
+        <p>{ name: 'Радар', price: 1300, quantity: 4 }</p>
+        <p>{ name: 'Сканер', price: 2700, quantity: 3 }</p>
+        <p>{ name: 'Дроид', price: 400, quantity: 7 }</p>
+        <p>{ name: 'Захват', price: 1200, quantity: 2 }</p>
         <form action="#">
           <fieldset>
-            <legend>Сумма чисел</legend>
-            <label
-              >Нажмите на кнопку и в появившемся окне последовательно введите
-              числа для суммирования:</label
+            <legend>
+              Подсчет стоимости выбранного продукта
+            </legend>
+            <label for="product"
+              >Введите имя продукта (значение свойства 'name'):</label
             ><br />
-            <button
-              id="button-6"
-              style="padding: 5px 10px; margin-top: 10px;"
-              type="submit"
-            >
-              Начать ввод чисел
-            </button>
+            <input
+              id="product"
+              minlength="1"
+              name="product"
+              required
+              type="text"
+            />
+            <button id="button-6" type="submit">Результат</button>
             <br />
           </fieldset>
         </form>
-        <div class="solution-6">
-          Общая сумма чисел равна: <span class="total-sum"></span>
-        </div>
+        <div class="solution-6"></div>
       </section>
+
       <section class="task-7">
         <h2 class="section-title">Задание 7</h2>
         <form action="#">

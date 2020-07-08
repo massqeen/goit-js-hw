@@ -24,7 +24,7 @@ button5.addEventListener('click', (event) => {
   const result = getAllPropValues(products, property.value);
 
   if (!!result.length) {
-    solution5.textContent = result.join(', ');
+    solution5.textContent = result.join(', ') + '.';
   } else {
     solution5.textContent =
       'В исходном массиве нет объектов с таким свойством!';
