@@ -201,10 +201,41 @@
         <h2 class="section-title">Задание 7</h2>
         <form action="#">
           <fieldset>
-            <legend>Добавление логина</legend>
-            <label for="login">Введите желаемый логин:</label><br />
-            <input id="login" minlength="1" name="login" required type="text" />
-            <button id="button-7" type="submit">Подтвердить</button>
+            <legend>Транзакции по счету</legend>
+            <label for="depositAcc">Введите сумму для пополнения счета:</label
+            ><br />
+            <input
+              id="depositAcc"
+              name="depositAcc"
+              required
+              type="number"
+              minlength="1"
+              value="100"
+            /><br />
+
+            <button id="button-7" type="submit" style="margin-top: 10px;">
+              Внести данные
+            </button>
+            <br />
+          </fieldset>
+        </form>
+        <form action="#">
+          <fieldset>
+            <legend>Транзакции по счету</legend>
+
+            <label for="withdrawAcc">Введите сумму для снятия со счета:</label
+            ><br />
+            <input
+              id="withdrawAcc"
+              name="withdrawAcc"
+              required
+              type="number"
+              minlength="1"
+              value="0"
+            /><br />
+            <button id="button-7-1" type="submit" style="margin-top: 10px;">
+              Внести данные
+            </button>
             <br />
           </fieldset>
         </form>

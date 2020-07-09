@@ -1,68 +1,70 @@
+const Transaction = {
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw'
+};
 const account = {
   balance: 0,
   transactions: [],
 
-  getItems() {
-    return this.items;
+  createTransaction(amount, type) {
+    const transaction = {};
+    transaction.id = this.transactions.length + 1;
+    transaction.amount = amount;
+    this.balance += amount;
+    transaction.type = type;
+    return transaction;
   },
 
-  add(product) {
-    for (const item of this.items) {
-      if (item.name === product.name) {
-        item.quantity += 1;
-        console.log('Такой продукт уже есть, кол-во увеличено');
-        return;
+  deposit(amount) {
+    const depositTransaction = this.createTransaction(
+      amount,
+      Transaction.DEPOSIT
+    );
+    this.transactions.push(depositTransaction);
+  },
+
+  withdraw(amount) {
+    if (amount > this.balance) {
+      console.log('недостаточно средств');
+      return;
+    }
+    const withdrawTransaction = this.createTransaction(
+      -amount,
+      Transaction.WITHDRAW
+    );
+    this.transactions.push(withdrawTransaction);
+  },
+
+  getBalance() {
+    return this.balance;
+  },
+
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (id === transaction.id) {
+        return transaction;
       }
     }
-    product.quantity = 1;
-    this.items.push(product);
-    console.log('Продукт добавлен');
+    return 'транзакция не найдена';
   },
-
-  remove(productName) {
-    const items = this.items;
-    for (let i = 0; i < items.length; i += 1) {
-      if (items[i].name === productName) {
-        console.log('Продукт найден, удаляем!');
-        items.splice(i, 1);
+  getTransactionTotal(type) {
+    let transactionTotal = 0;
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        transactionTotal += transaction.amount;
       }
     }
-  },
-
-  clear() {
-    this.items = [];
-    console.log('Корзина очищена');
-  },
-
-  countTotalPrice() {
-    let total = 0;
-    for (const item of this.items) {
-      total += item.price * item.quantity;
+    if (transactionTotal === 0) {
+      return 'данные операции не проводились';
     }
-    return total;
-  },
-
-  changeQuantity(productName, quantityIncrement) {
-    for (const item of this.items) {
-      if (quantityIncrement > 0) {
-        if (productName === item.name) {
-          item.quantity += quantityIncrement;
-          console.log('Количество увеличено');
-          return;
-        }
-      }
-      if (productName === item.name) {
-        if (item.quantity === 1) {
-          this.remove(productName);
-          console.log('Продукт удален из корзины');
-          return;
-        }
-        item.quantity += quantityIncrement;
-        console.log('Количество уменьшено');
-        return;
-      }
-    }
+    return transactionTotal;
   }
 };
 
-export default account;
+console.log(account.deposit(100));
+console.log(account.withdraw(50));
+console.log(account.deposit(250));
+console.table(account.transactions);
+console.log(account.getBalance());
+console.table(account.getTransactionDetails(3));
+console.table(account.getTransactionTotal('withdraw'));
