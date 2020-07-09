@@ -21,3 +21,6 @@ button5.addEventListener('click', (event) => {
     ? 'Обнаружен спам!'
     : 'Ура, спама нет!';
 });
+// alt checking with regexp
+// const regExp = /spam|sale|спам|распродажа/;
+// console.log(regExp.test(spam.value));
