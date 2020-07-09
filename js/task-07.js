@@ -1,17 +1,3 @@
-/* Работаем с коллекцией товаров в корзине:
- * - getItems()
- * - add(product)
- * - remove(productName)
- * - clear()
- * - countTotalPrice()
- * - increaseQuantity(productName)
- * - decreaseQuantity(productName)
- *
- * { name: 'apple', price: 50 }
- * { name: 'grapes', price: 70 }
- * { name: 'lemon', price: 60 }
- * { name: 'strawberry', price: 110 }
- */
 const account = {
   balance: 0,
   transactions: [],
@@ -79,4 +65,4 @@ const account = {
   }
 };
 
-export default cart;
+export default account;
