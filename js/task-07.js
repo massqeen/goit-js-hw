@@ -1,3 +1,13 @@
+const depositInput = document.getElementById('depositAcc'),
+  depositInputBtn = document.getElementById('button-7-deposit'),
+  idDetails = document.getElementById('idDetails'),
+  idDetailsBtn = document.getElementById('button-7-idDetails'),
+  solution = document.querySelector('.solution-7'),
+  typeTransaction = document.getElementById('typeTransaction'),
+  typeTransactionBtn = document.getElementById('button-7-typeDetails'),
+  withdrawInput = document.getElementById('withdrawAcc'),
+  withdrawInputBtn = document.getElementById('button-7-withdraw');
+
 const Transaction = {
   DEPOSIT: 'deposit',
   WITHDRAW: 'withdraw'
@@ -10,7 +20,7 @@ const account = {
     const transaction = {};
     transaction.id = this.transactions.length + 1;
     transaction.amount = amount;
-    this.balance += amount;
+    this.balance += type === 'withdraw' ? -amount : amount;
     transaction.type = type;
     return transaction;
   },
@@ -25,11 +35,11 @@ const account = {
 
   withdraw(amount) {
     if (amount > this.balance) {
-      console.log('недостаточно средств');
+      alert('Недостаточно средств!');
       return;
     }
     const withdrawTransaction = this.createTransaction(
-      -amount,
+      amount,
       Transaction.WITHDRAW
     );
     this.transactions.push(withdrawTransaction);
@@ -45,8 +55,9 @@ const account = {
         return transaction;
       }
     }
-    return 'транзакция не найдена';
+    return false;
   },
+
   getTransactionTotal(type) {
     let transactionTotal = 0;
     for (const transaction of this.transactions) {
@@ -54,17 +65,58 @@ const account = {
         transactionTotal += transaction.amount;
       }
     }
-    if (transactionTotal === 0) {
-      return 'данные операции не проводились';
-    }
+
     return transactionTotal;
   }
 };
 
-console.log(account.deposit(100));
-console.log(account.withdraw(50));
-console.log(account.deposit(250));
-console.table(account.transactions);
-console.log(account.getBalance());
-console.table(account.getTransactionDetails(3));
-console.table(account.getTransactionTotal('withdraw'));
+depositInputBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(7);
+  if (depositInput.value > 0) {
+    account.deposit(+depositInput.value);
+    solution.textContent = `Спасибо, Ваш счет пополнен! Текущий баланс: 
+    ${account.getBalance()}`;
+  } else {
+    alert('Пожалуйста, введите корректную сумму для пополнения счета!');
+  }
+});
+
+withdrawInputBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(7);
+  if (withdrawInput.value > 0) {
+    account.withdraw(+withdrawInput.value);
+    solution.textContent = `Операция по снятие средств успешно проведена! Текущий баланс: 
+    ${account.getBalance()}`;
+  } else {
+    alert('Пожалуйста, введите корректную сумму для снятия со счета!');
+  }
+});
+
+idDetailsBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  let result = account.getTransactionDetails(+idDetails.value);
+  Tinycon.setBubble(7);
+  if (idDetails.value > 0 && result) {
+    solution.textContent = `Тип операции: ${result.type}, сумма операции: ${result.amount}`;
+  } else {
+    solution.textContent = 'Такая транзакция не найдена :(';
+  }
+  if (idDetails.value <= 0) {
+    alert('Номер транзакции должен быть больше 0');
+  } else if (account.transactions.length === 0) {
+    alert('В истории по вашему счету нет операций :(');
+  }
+});
+
+typeTransactionBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(7);
+  if (account.transactions.length === 0) {
+    alert('В истории по вашему счету нет операций :(');
+  } else {
+    let result = account.getTransactionTotal(typeTransaction.value);
+    solution.textContent = `Сумма средств по выбранному типу транзакций составляет ${result}`;
+  }
+});
