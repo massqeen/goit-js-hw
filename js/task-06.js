@@ -11,7 +11,7 @@ button6.addEventListener('click', (event) => {
 
   for (let i = 1; i > 0; i += 1) {
     let cancelCheck = prompt(checkMessage);
-    input = Number(cancelCheck);
+    input = +cancelCheck;
 
     if (Number.isNaN(input)) {
       alert('Было введено не число, попробуйте еще раз!');
