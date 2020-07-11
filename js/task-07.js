@@ -3,13 +3,9 @@ const button7 = document.getElementById('button-7'),
   logins = ['google', 'robot', 'qwerty'],
   solution7 = document.querySelector('.solution-7');
 
-const isLoginValid = () => {
-  return login.value.length >= 4 && login.value.length <= 16;
-};
+const isLoginValid = () => login.value.length >= 4 && login.value.length <= 16;
 
-const isLoginUnique = (loginsArr) => {
-  return !loginsArr.includes(login.value);
-};
+const isLoginUnique = (loginsArr) => !loginsArr.includes(login.value);
 
 const addLogin = () => {
   if (!isLoginValid()) {

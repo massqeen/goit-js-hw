@@ -23,4 +23,4 @@ button5.addEventListener('click', (event) => {
 });
 // alt checking with regexp
 // const regExp = /spam|sale|спам|распродажа/;
-// console.log(regExp.test(spam.value));
+// console.log(regExp.test(spam.value.toLowerCase());
