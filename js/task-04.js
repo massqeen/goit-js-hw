@@ -6,13 +6,10 @@ const button4 = document.getElementById('button-4'),
   solution4 = document.querySelector('.solution-4');
 
 const countTotalSalary = (obj) => {
-  let totalSalary = 0;
-
-  for (const value of Object.values(obj)) {
-    totalSalary += Number(value);
-  }
-
-  return totalSalary;
+  return Object.values(obj).reduce(
+    (totalSalary, currentSalary) => totalSalary + +currentSalary,
+    0
+  );
 };
 button4.addEventListener('click', (event) => {
   event.preventDefault();
@@ -24,6 +21,7 @@ button4.addEventListener('click', (event) => {
 
 buttonSolve.addEventListener('click', () => {
   const totalSalary = countTotalSalary(employees);
+  solution4.textContent = '';
 
   solution4.insertAdjacentHTML(
     'beforeend',

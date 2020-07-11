@@ -40,10 +40,13 @@ button3.addEventListener('click', (event) => {
 
 buttonSolve.addEventListener('click', () => {
   const resultArray = findBestEmployee(employees);
-
-  solution3.insertAdjacentHTML(
-    'beforeend',
-    `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
-  );
-  document.querySelector('.task3-span').style.color = '#2ac940';
+  solution3.textContent = '';
+  if (employees.length) {
+    solution3.insertAdjacentHTML(
+      'beforeend',
+      `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
+    );
+    document.querySelector('.task3-span').style.color = '#2ac940';
+  }
+  alert('Внесите в базу хотя бы одного сотрудника!');
 });
