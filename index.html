@@ -2,116 +2,132 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS-HW-01</title>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>JS-HW-02</title>
+    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
   <body>
     <header class="header">
-      <h1 class="title">Домашняя работа №1</h1>
+      <h1 class="title">Домашняя работа №2</h1>
     </header>
     <main>
       <section class="task-1">
         <h2 class="section-title">Задание 1</h2>
         <form action="#">
           <fieldset>
-            <legend>Выбор товара</legend>
-            <label for="good-1">Введите название товара:</label><br />
-            <input
-              type="text"
-              id="good-1"
-              name="good-1"
-              value="Генератор защитного поля"
-              required
-            />
-            <button type="submit" id="button-1">Выбрать</button>
+            <legend>Номер элемента в массиве</legend>
+            <label
+              >Нажмите на кнопку, чтобы получить пронумерованные элементы
+              заданных массивов</label
+            ><br />
+            <button
+              id="button-1"
+              style="padding: 5px 10px; margin-top: 10px;"
+              type="submit"
+            >
+              Получить
+            </button>
             <br />
           </fieldset>
         </form>
         <div class="solution-1"></div>
       </section>
+
       <section class="task-2">
         <h2 class="section-title">Задание 2</h2>
         <form action="#">
           <fieldset>
-            <legend>Заказ товаров на складе</legend>
-            <label for="good-2"
-              >Введите количество единиц товара для заказа:</label
+            <legend>Стоимость гравировки украшений</legend>
+            <label for="phrase"
+              >Введите фразу для гравировки (только слова, разделенные
+              пробелами):</label
             ><br />
             <input
-              type="number"
-              id="good-2"
-              name="good-2"
-              value="10"
+              id="phrase"
+              name="phrase"
               required
+              type="text"
+              minlength="1"
+              style="min-width: 400px;"
             />
-            <button type="submit" id="button-2">Заказать</button>
+            <button id="button-2" type="submit">Заказать</button>
             <br />
           </fieldset>
         </form>
         <div class="solution-2"></div>
       </section>
+
       <section class="task-3">
         <h2 class="section-title">Задание 3</h2>
-        <form action="#" method="GET">
+        <form action="#">
           <fieldset>
-            <legend>Авторизация администратора</legend>
-            <label for="password">Введите пароль администратора:</label><br />
+            <legend>Самое длинное слово</legend>
+            <label for="string-3"
+              >Введите любую фразу или предложение (слова должны быть разделены
+              только пробелами):</label
+            ><br />
             <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="current-password"
+              id="string-3"
+              name="string-3"
               required
+              type="text"
+              minlength="1"
+              style="min-width: 400px;"
             />
-            <button type="submit" id="button-3">Подтвердить</button>
+            <button id="button-3" type="submit">Подтвердить</button>
             <br />
           </fieldset>
         </form>
-        <div class="solution-3"></div>
+        <div class="solution-3">
+          <span class="answer-description"></span>
+          <span class="answer-words"></span>
+          <span class="answer-words-length"></span>
+        </div>
       </section>
+
       <section class="task-4">
         <h2 class="section-title">Задание 4</h2>
         <form action="#">
           <fieldset>
-            <legend>Покупка ремонтных дроидов</legend>
-            <label for="droid">Введите количество дроидов для покупки:</label
-            ><br />
-            <input type="number" id="droid" name="droid" value="1" required />
-            <button type="submit" id="button-4">Купить</button>
+            <legend>Не более 40 символов</legend>
+            <label for="symbols">Введите любые данные:</label><br />
+            <input
+              id="symbols"
+              name="symbols"
+              required
+              type="text"
+              minlength="1"
+              style="min-width: 400px;"
+            />
+            <button id="button-4" type="submit">Подтвердить</button>
             <br />
           </fieldset>
         </form>
-        <p class="credits-info">
-          На вашем счете: <span class="credits">23580</span> кредитов
-        </p>
-        <p class="droids-price">Стоимость 1 дроида: 3000 кредитов</p>
-        <p class="droids-info">
-          Приобретено дроидов: <span class="droids-number">0</span>
-        </p>
+        <div class="solution-4"></div>
       </section>
+
       <section class="task-5">
         <h2 class="section-title">Задание 5</h2>
         <form action="#">
           <fieldset>
-            <legend>Оформление адресной доставки</legend>
-            <label for="country">Введите страну для доставки товара:</label
-            ><br />
+            <legend>Проверка на 'spam' и 'sale'</legend>
+            <label for="spam">Введите фразу для проверки:</label><br />
             <input
-              type="text"
-              id="country"
-              name="country"
-              value="Китай"
-              minlength="2"
+              id="spam"
+              minlength="1"
+              name="spam"
               required
+              type="text"
+              style="min-width: 400px;"
             />
-            <button type="submit" id="button-5">Заказать</button>
+            <button id="button-5" type="submit">Проверить</button>
             <br />
           </fieldset>
         </form>
         <div class="solution-5"></div>
       </section>
+
       <section class="task-6">
         <h2 class="section-title">Задание 6</h2>
         <form action="#">
@@ -122,9 +138,9 @@
               числа для суммирования:</label
             ><br />
             <button
-              type="submit"
               id="button-6"
               style="padding: 5px 10px; margin-top: 10px;"
+              type="submit"
             >
               Начать ввод чисел
             </button>
@@ -132,23 +148,37 @@
           </fieldset>
         </form>
         <div class="solution-6">
-          Сумма введенных чисел: <span class="total-sum"></span>
+          Общая сумма чисел равна: <span class="total-sum"></span>
         </div>
       </section>
+      <section class="task-7">
+        <h2 class="section-title">Задание 7</h2>
+        <form action="#">
+          <fieldset>
+            <legend>Добавление логина</legend>
+            <label for="login">Введите желаемый логин:</label><br />
+            <input id="login" minlength="1" name="login" required type="text" />
+            <button id="button-7" type="submit">Подтвердить</button>
+            <br />
+          </fieldset>
+        </form>
+        <div class="solution-7"></div>
+      </section>
     </main>
+    <script src="./js/tinycon.min.js"></script>
+    <script>
+      Tinycon.setOptions({
+        width: 6,
+        font: '9px arial',
+        background: '#549a2f'
+      });
+    </script>
     <script type="module" src="./js/task-01.js"></script>
     <script type="module" src="./js/task-02.js"></script>
     <script type="module" src="./js/task-03.js"></script>
     <script type="module" src="./js/task-04.js"></script>
     <script type="module" src="./js/task-05.js"></script>
     <script type="module" src="./js/task-06.js"></script>
-    <script src="./js/tinycon.min.js"></script>
-    <script>
-      Tinycon.setOptions({
-        width: 6,
-        font: '9px arial',
-        background: '#549a2f',
-      });
-    </script>
+    <script type="module" src="./js/task-07.js"></script>
   </body>
 </html>
