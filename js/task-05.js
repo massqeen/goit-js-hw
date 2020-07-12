@@ -3,9 +3,8 @@ const button5 = document.getElementById('button-5'),
   solution5 = document.querySelector('.solution-5');
 let price;
 
-function capitalizeFirstLetter(string) {
-  return string[0].toUpperCase() + string.slice(1);
-}
+const capitalizeFirstLetter = string =>
+  `string[0].toUpperCase()string.slice(1)`;
 
 button5.addEventListener('click', event => {
   event.preventDefault();
