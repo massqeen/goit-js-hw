@@ -11,21 +11,22 @@ const countTotalSalary = (obj) => {
     0
   );
 };
-button4.addEventListener('click', (event) => {
+const handleButton4Click = (event) => {
   event.preventDefault();
   Tinycon.setBubble(4);
 
   employees[nameEmployee.value] = salaryEmployee.value;
   console.log(employees);
-});
-
-buttonSolve.addEventListener('click', () => {
+};
+const handleButtonSolveClick = () => {
   const totalSalary = countTotalSalary(employees);
   solution4.textContent = '';
-
   solution4.insertAdjacentHTML(
     'beforeend',
     `<p>Сумма зарплаты работников составляет: <span class="task4-span">${totalSalary}</span> кредитов.</p>`
   );
   document.querySelector('.task4-span').style.color = '#2ac940';
-});
+};
+
+button4.addEventListener('click', handleButton4Click);
+buttonSolve.addEventListener('click', handleButtonSolveClick);

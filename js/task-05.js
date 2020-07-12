@@ -17,8 +17,7 @@ const getAllPropValues = (arr, prop) => {
   }
   return allValues;
 };
-
-button5.addEventListener('click', (event) => {
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(5);
   const result = getAllPropValues(products, property.value);
@@ -29,4 +28,6 @@ button5.addEventListener('click', (event) => {
     solution5.textContent =
       'В исходном массиве нет объектов с таким свойством!';
   }
-});
+};
+
+button5.addEventListener('click', handleButtonClick);

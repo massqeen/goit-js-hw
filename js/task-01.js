@@ -9,7 +9,7 @@ const user = {
   premium: true
 };
 
-button1.addEventListener('click', (event) => {
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(1);
 
@@ -27,4 +27,6 @@ button1.addEventListener('click', (event) => {
       .querySelectorAll('.task1-span')
       .forEach((element) => (element.style.color = '#2ac940'));
   }
-});
+};
+
+button1.addEventListener('click', handleButtonClick);

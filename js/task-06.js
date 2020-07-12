@@ -16,8 +16,7 @@ const calculateTotalPrice = (allProduct, productName) => {
   }
   return false;
 };
-
-button6.addEventListener('click', (event) => {
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(6);
   const result = calculateTotalPrice(products, product.value);
@@ -28,4 +27,6 @@ button6.addEventListener('click', (event) => {
     solution6.textContent =
       'В исходном массиве нет объектов с таким продуктом!';
   }
-});
+};
+
+button6.addEventListener('click', handleButtonClick);

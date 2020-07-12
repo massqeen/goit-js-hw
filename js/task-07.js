@@ -69,8 +69,7 @@ const account = {
     return transactionTotal;
   }
 };
-
-depositInputBtn.addEventListener('click', (event) => {
+const handleButtonDepositClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(7);
   if (depositInput.value > 0) {
@@ -80,9 +79,9 @@ depositInputBtn.addEventListener('click', (event) => {
   } else {
     alert('Пожалуйста, введите корректную сумму для пополнения счета!');
   }
-});
+};
 
-withdrawInputBtn.addEventListener('click', (event) => {
+const handleButtonWithdrawClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(7);
   if (withdrawInput.value > 0) {
@@ -92,9 +91,9 @@ withdrawInputBtn.addEventListener('click', (event) => {
   } else {
     alert('Пожалуйста, введите корректную сумму для снятия со счета!');
   }
-});
+};
 
-idDetailsBtn.addEventListener('click', (event) => {
+const handleButtonIdDetailsClick = (event) => {
   event.preventDefault();
   let result = account.getTransactionDetails(+idDetails.value);
   Tinycon.setBubble(7);
@@ -108,9 +107,9 @@ idDetailsBtn.addEventListener('click', (event) => {
   } else if (account.transactions.length === 0) {
     alert('В истории по вашему счету нет операций :(');
   }
-});
+};
 
-typeTransactionBtn.addEventListener('click', (event) => {
+const handleButtonTypeTransactionsClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(7);
   if (account.transactions.length === 0) {
@@ -119,4 +118,9 @@ typeTransactionBtn.addEventListener('click', (event) => {
     let result = account.getTransactionTotal(typeTransaction.value);
     solution.textContent = `Сумма средств по выбранному типу транзакций составляет ${result}`;
   }
-});
+};
+
+depositInputBtn.addEventListener('click', handleButtonDepositClick);
+withdrawInputBtn.addEventListener('click', handleButtonWithdrawClick);
+idDetailsBtn.addEventListener('click', handleButtonIdDetailsClick);
+typeTransactionBtn.addEventListener('click', handleButtonTypeTransactionsClick);

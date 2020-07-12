@@ -31,22 +31,25 @@ const findBestEmployee = (obj) => {
     `выполнено ${maxTasks} задач.`
   ];
 };
-button3.addEventListener('click', (event) => {
+const handleButton3Click = (event) => {
   event.preventDefault();
   Tinycon.setBubble(3);
   employees[nameEmployee.value] = tasksEmployee.value;
   console.log(employees);
-});
-
-buttonSolve.addEventListener('click', () => {
+};
+const handleButtonSolveClick = () => {
   const resultArray = findBestEmployee(employees);
   solution3.textContent = '';
-  if (employees.length) {
+  if (Object.keys(employees).length) {
     solution3.insertAdjacentHTML(
       'beforeend',
       `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
     );
     document.querySelector('.task3-span').style.color = '#2ac940';
+  } else {
+    alert('Внесите в базу хотя бы одного сотрудника!');
   }
-  alert('Внесите в базу хотя бы одного сотрудника!');
-});
+};
+
+button3.addEventListener('click', handleButton3Click);
+buttonSolve.addEventListener('click', handleButtonSolveClick);

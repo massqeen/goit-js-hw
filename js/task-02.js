@@ -3,9 +3,10 @@ const button2 = document.getElementById('button-2'),
   solution2 = document.querySelector('.solution-2');
 
 const countProps = (obj) => Object.values(obj).length;
-button2.addEventListener('click', (event) => {
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(2);
-
   solution2.textContent = `В объекте ${countProps(object)} свойств`;
-});
+};
+
+button2.addEventListener('click', handleButtonClick);
