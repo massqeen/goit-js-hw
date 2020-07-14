@@ -3,37 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>JS-HW-02</title>
+    <title>JS-HW-04</title>
     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
   <body>
     <header class="header">
-      <h1 class="title">Домашняя работа №2</h1>
+      <h1 class="title">Домашняя работа №4</h1>
     </header>
     <main>
       <section class="task-1">
         <h2 class="section-title">Задание 1</h2>
         <form action="#">
           <fieldset>
-            <legend>Изменение и вывод данных объекта user</legend>
-            <label for="user-name">Введите желаемое имя пользователя</label
+            <legend>Изменение размера скидки</legend>
+            <label for="discount"
+              >Введите желаемую сумму скидки (в диапазоне от 0 до 0.5:</label
             ><br />
             <input
-              id="user-name"
-              name="user-name"
+              id="discount"
+              name="discount"
               required
-              type="text"
-              minlength="1"
-              value="Poly"
+              type="number"
+              value="0"
+              step="any"
             />
-            <button id="button-1" type="submit">
-              Получить данные
+
+            <button
+              id="button-1-discount"
+              type="submit"
+              style="margin-top: 10px;"
+            >
+              Внести данные
             </button>
             <br />
           </fieldset>
         </form>
-        <div class="solution-1"></div>
+        <form action="#" style="margin-top: 10px;">
+          <fieldset>
+            <legend>Просмотр сделанных заказов</legend>
+
+            <label>Нажмите на кнопку для просмотра заказов:</label><br />
+
+            <button
+              id="button-1-orders"
+              type="submit"
+              style="margin-top: 10px;"
+            >
+              Показать
+            </button>
+            <br />
+          </fieldset>
+        </form>
+        <form action="#" style="margin-top: 10px;">
+          <fieldset>
+            <legend>Новый заказ</legend>
+
+            <label for="orderPrice">Введите цену заказа:</label><br />
+            <input
+              id="orderPrice"
+              name="orderPrice"
+              required
+              type="number"
+              minlength="1"
+              value="1000"
+            />
+            <button
+              id="button-1-addOrder"
+              style="margin-top: 10px; margin-bottom: 10px;"
+            >
+              Подтвердить заказ
+            </button>
+          </fieldset>
+        </form>
+        <div class="solution-1">Текущий баланс: 24000</div>
       </section>
 
       <section class="task-2">
@@ -299,8 +342,6 @@
       });
     </script>
     <script type="module" src="./js/task-01.js"></script>
-    <script type="module" src="./js/task-02.js"></script>
-
-    <!--    <script type="module" src="./js/task-07.js"></script>-->
+    <!--    <script type="module" src="./js/task-02.js"></script>-->
   </body>
 </html>
