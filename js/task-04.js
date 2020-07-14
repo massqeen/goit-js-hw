@@ -3,10 +3,9 @@ const button4 = document.getElementById('button-4'),
   symbols = document.getElementById('symbols');
 
 const formatString = () => {
-  if (symbols.value.length <= 40) {
-    return symbols.value;
-  }
-  return symbols.value.slice(0, 39) + '...';
+  return symbols.value.length <= 40
+    ? symbols.value
+    : `${symbols.value.slice(0, 39)}...`;
 };
 
 button4.addEventListener('click', (event) => {
