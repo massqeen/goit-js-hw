@@ -1,30 +1,25 @@
-const button1 = document.getElementById('button-1'),
-  solution1 = document.querySelector('.solution-1'),
-  userName = document.getElementById('user-name');
-
-const user = {
-  name: 'Mango',
-  age: 20,
-  hobby: 'html',
-  premium: true
+const account = {
+  owner: 'Mango',
+  balance: 24000,
+  discount: 0.1,
+  orders: ['order-1', 'order-2', 'order-3'],
+  changeDiscount(value) {
+    this.discount = value;
+  },
+  showOrders() {
+    return this.orders;
+  },
+  addOrder(cost, order) {
+    this.balance -= cost;
+    this.orders.push(order);
+  }
 };
 
-button1.addEventListener('click', (event) => {
-  event.preventDefault();
-  Tinycon.setBubble(1);
+account.changeDiscount(0.15);
+console.log(account.discount); // 0.15
 
-  solution1.textContent = '';
-  user.name = userName.value;
-  user.mood = 'happy';
-  user.hobby = 'skydiving';
-  user.premium = false;
-  for (const key of Object.keys(user)) {
-    solution1.insertAdjacentHTML(
-      'beforeend',
-      `<p>${key}: <span class="task1-span">${user[key]}</span></p>`
-    );
-    document
-      .querySelectorAll('.task1-span')
-      .forEach((element) => (element.style.color = '#2ac940'));
-  }
-});
+console.table(account.showOrders()); // ['order-1', 'order-2', 'order-3']
+
+account.addOrder(5000, 'order-4');
+console.log(account.balance); // 19000
+console.table(account.showOrders()); // ['order-1', 'order-2', 'order-3', 'order-4']
