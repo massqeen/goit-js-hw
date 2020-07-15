@@ -24,7 +24,7 @@ const account = {
 
 const handleDiscountBtnClick = (event) => {
   event.preventDefault();
-  Tinycon.setBubble(7);
+  Tinycon.setBubble(1);
   if (discountInput.value >= 0 && discountInput.value <= 0.5) {
     account.changeDiscount(discountInput.value);
     solution.textContent = `Скидка установлена в размере ${
@@ -37,7 +37,7 @@ const handleDiscountBtnClick = (event) => {
 
 const handleOrdersBtnClick = (event) => {
   event.preventDefault();
-  Tinycon.setBubble(7);
+  Tinycon.setBubble(1);
   solution.textContent = `Подтвержденные заказы: ${account
     .showOrders()
     .join(', ')}.`;
@@ -45,7 +45,7 @@ const handleOrdersBtnClick = (event) => {
 
 const handleAddOrderBtnClick = (event) => {
   event.preventDefault();
-  Tinycon.setBubble(7);
+  Tinycon.setBubble(1);
   if (addOrderInput.value > 0 && addOrderInput.value <= account.balance) {
     account.addOrder(addOrderInput.value);
     solution.textContent = `Заказ подтвержден! Ваш баланс: ${account.balance}`;
