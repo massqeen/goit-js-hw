@@ -1,33 +1,55 @@
 const button3 = document.getElementById('button-3'),
+  buttonSolve = document.getElementById('button-3-1'),
+  employees = {},
+  nameEmployee = document.getElementById('nameEmployee'),
   solution3 = document.querySelector('.solution-3'),
-  string = document.getElementById('string-3');
+  tasksEmployee = document.getElementById('tasksEmployee');
 
-const findLongestWord = () => {
-  const words = string.value.split(' ');
-  let longestWord = '';
-  let longestWords = [];
+const findBestEmployee = (obj) => {
+  let bestEmployees = [],
+    maxTasks = 0;
 
-  for (const word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
-      longestWords = [longestWord];
-    }
-    if (word.length === longestWord.length && word !== longestWord) {
-      longestWords.push(word);
+  for (const entry of Object.entries(obj)) {
+    if (maxTasks < entry[1]) {
+      bestEmployees = [];
+      maxTasks = +entry[1];
+      bestEmployees.push(entry[0]);
+    } else if (maxTasks === +entry[1]) {
+      bestEmployees.push(entry[0]);
     }
   }
-
-  if (longestWords.length > 1) {
-    return `Самые длинные слова в вашей фразе: ${longestWords.join(
-      ', '
-    )}; их длина равна ${longestWord.length} символам.`;
+  if (bestEmployees.length > 1) {
+    return [
+      'Самые продуктивные сотрудники: ',
+      bestEmployees.join(', ') + '; ',
+      `выполнено ${maxTasks} задач.`
+    ];
   }
-  return `Самое длинное слово в вашей фразе: ${longestWord}; его длина равна ${longestWord.length} символам.`;
+  return [
+    'Самый продуктивный сотрудник: ',
+    bestEmployees.join(', ') + '; ',
+    `выполнено ${maxTasks} задач.`
+  ];
 };
-
-button3.addEventListener('click', (event) => {
+const handleButton3Click = (event) => {
   event.preventDefault();
   Tinycon.setBubble(3);
+  employees[nameEmployee.value] = tasksEmployee.value;
+  console.log(employees);
+};
+const handleButtonSolveClick = () => {
+  const resultArray = findBestEmployee(employees);
+  solution3.textContent = '';
+  if (Object.keys(employees).length) {
+    solution3.insertAdjacentHTML(
+      'beforeend',
+      `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
+    );
+    document.querySelector('.task3-span').style.color = '#2ac940';
+  } else {
+    alert('Внесите в базу хотя бы одного сотрудника!');
+  }
+};
 
-  solution3.textContent = findLongestWord();
-});
+button3.addEventListener('click', handleButton3Click);
+buttonSolve.addEventListener('click', handleButtonSolveClick);

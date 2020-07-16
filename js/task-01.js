@@ -1,23 +1,32 @@
-const arrayNames = ['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong'],
-  arrayNumbers = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
-  button1 = document.getElementById('button-1'),
-  solution1 = document.querySelector('.solution-1');
+const button1 = document.getElementById('button-1'),
+  solution1 = document.querySelector('.solution-1'),
+  userName = document.getElementById('user-name');
 
-const logItems = (array) => {
-  const arrayResult = [];
-  for (let i = 0; i < array.length; i += 1) {
-    let output = `${i + 1} - ${array[i]}`;
-    arrayResult.push(output);
-  }
-  return arrayResult.join(', ');
+const user = {
+  name: 'Mango',
+  age: 20,
+  hobby: 'html',
+  premium: true
 };
 
-button1.addEventListener('click', (event) => {
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(1);
 
-  const result1 = logItems(arrayNames);
-  solution1.insertAdjacentHTML('beforeend', `<p>${result1};</p>`);
-  const result2 = logItems(arrayNumbers);
-  solution1.insertAdjacentHTML('beforeend', `<p>${result2};</p>`);
-});
+  solution1.textContent = '';
+  user.name = userName.value;
+  user.mood = 'happy';
+  user.hobby = 'skydiving';
+  user.premium = false;
+  for (const key of Object.keys(user)) {
+    solution1.insertAdjacentHTML(
+      'beforeend',
+      `<p>${key}: <span class="task1-span">${user[key]}</span></p>`
+    );
+    document
+      .querySelectorAll('.task1-span')
+      .forEach((element) => (element.style.color = '#2ac940'));
+  }
+};
+
+button1.addEventListener('click', handleButtonClick);

@@ -1,28 +1,32 @@
 const button6 = document.getElementById('button-6'),
-  checkMessage = 'Введите любое число (для выхода нажмите "cancel")',
-  numbers = [],
-  totalSum = document.querySelector('.total-sum');
-let input,
-  total = 0;
+  product = document.getElementById('product'),
+  products = [
+    { name: 'Радар', price: 1300, quantity: 4 },
+    { name: 'Сканер', price: 2700, quantity: 3 },
+    { name: 'Дроид', price: 400, quantity: 7 },
+    { name: 'Захват', price: 1200, quantity: 2 }
+  ],
+  solution6 = document.querySelector('.solution-6');
 
-button6.addEventListener('click', (event) => {
+const calculateTotalPrice = (allProduct, productName) => {
+  for (const objItem of allProduct) {
+    if (objItem.name === productName) {
+      return objItem.price * objItem.quantity;
+    }
+  }
+  return false;
+};
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(6);
+  const result = calculateTotalPrice(products, product.value);
 
-  for (let i = 1; i > 0; i += 1) {
-    let cancelCheck = prompt(checkMessage);
-    input = +cancelCheck;
+  if (result) {
+    solution6.textContent = `Общая стоимость продукта "${product.value}" составляет ${result}.`;
+  } else {
+    solution6.textContent =
+      'В исходном массиве нет объектов с таким продуктом!';
+  }
+};
 
-    if (Number.isNaN(input)) {
-      alert('Было введено не число, попробуйте еще раз!');
-      continue;
-    } else if (cancelCheck === null) {
-      break;
-    }
-    numbers.push(input);
-  }
-  for (const number of numbers) {
-    total += number;
-  }
-  totalSum.textContent = total;
-});
+button6.addEventListener('click', handleButtonClick);
