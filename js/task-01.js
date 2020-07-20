@@ -1,13 +1,7 @@
 const button1 = document.getElementById('button-1'),
-  solution1 = document.querySelector('.solution-1'),
-  userName = document.getElementById('user-name');
-
-const user = {
-  name: 'Mango',
-  age: 20,
-  hobby: 'html',
-  premium: true
-};
+  email = document.getElementById('email'),
+  login = document.getElementById('login'),
+  solution1 = document.querySelector('.solution-1');
 
 const handleButtonClick = (event) => {
   event.preventDefault();

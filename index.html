@@ -3,32 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>JS-HW-02</title>
+    <title>JS-HW-05</title>
     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
   <body>
     <header class="header">
-      <h1 class="title">Домашняя работа №3</h1>
+      <h1 class="title">Домашняя работа №5</h1>
     </header>
     <main>
       <section class="task-1">
         <h2 class="section-title">Задание 1</h2>
         <form action="#">
           <fieldset>
-            <legend>Изменение и вывод данных объекта user</legend>
-            <label for="user-name">Введите желаемое имя пользователя</label
-            ><br />
+            <legend>Функция-конструктор Account</legend>
+            <label for="login">Введите желаемый логин</label><br />
             <input
-              id="user-name"
-              name="user-name"
+              id="login"
+              name="login"
               required
               type="text"
               minlength="1"
-              value="Poly"
+              value="Mangozedog"
+            />
+            <label for="email">Введите e-mail</label><br />
+            <input
+              id="email"
+              name="email"
+              required
+              type="email"
+              value="mango@dog.woof"
             />
             <button id="button-1" type="submit">
-              Получить данные
+              Внести данные
             </button>
             <br />
           </fieldset>
