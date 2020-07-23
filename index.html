@@ -125,42 +125,46 @@
         <h2 class="section-title">Задание 4</h2>
         <form action="#">
           <fieldset>
-            <legend>Сумма зарплаты работников</legend>
-            <p style="max-width: 700px;">
-              Внесите данные по всем своим сотрудникам: занесите в форму имя
-              сотрудника и его зарплату, затем нажмите "Внести данные".
-              Процедуру необходимо повторить для каждого сотрудника. Для
-              определения общей суммы зарплаты нажмите "Вычислить"
-            </p>
-            <label for="nameEmployee"
-              >Введите имя сотрудника (должно быть уникально):</label
+            <legend>Создание строки</legend>
+
+            <label for="string">Введите значение для добавления в строку:</label
             ><br />
             <input
-              id="nameEmployee"
-              name="nameEmployee"
+              id="string"
+              name="string"
               required
               type="text"
-              minlength="2"
-            /><br />
-            <label for="salaryEmployee">Введите зарплату сотрудника:</label
-            ><br />
-            <input
-              id="salaryEmployee"
-              name="salaryEmployee"
-              required
-              type="number"
               minlength="1"
+              value="^"
+              style="width: 216px;"
             /><br />
-            <button id="button-4" type="submit" style="margin-top: 10px;">
-              Внести данные
+            <button
+              id="button-4Begin"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Добавить значение в начало строки
+            </button>
+            <button
+              id="button-4End"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Добавить значение в конец строки
+            </button>
+
+            <button
+              id="button-4BothEdges"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Добавить значение в начало и конец строки
             </button>
             <br />
           </fieldset>
         </form>
-        <button id="button-4-1" style="margin-top: 10px;">
-          Вычислить
-        </button>
-        <div class="solution-4"></div>
+
+        <div class="solution-4" style="margin-top: 10px;"></div>
       </section>
 
       <section class="task-5">

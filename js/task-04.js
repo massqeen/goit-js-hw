@@ -1,32 +1,49 @@
-const button4 = document.getElementById('button-4'),
-  buttonSolve = document.getElementById('button-4-1'),
-  employees = {},
-  nameEmployee = document.getElementById('nameEmployeeTask4'),
-  salaryEmployee = document.getElementById('salaryEmployee'),
-  solution4 = document.querySelector('.solution-4');
+const button4Begin = document.getElementById('button-4Begin'),
+  button4BothEdges = document.getElementById('button-4BothEdges'),
+  button4End = document.getElementById('button-4End'),
+  solution4 = document.querySelector('.solution-4'),
+  string = document.getElementById('string');
 
-const countTotalSalary = (obj) => {
-  return Object.values(obj).reduce(
-    (totalSalary, currentSalary) => totalSalary + +currentSalary,
-    0
-  );
-};
-const handleButton4Click = (event) => {
+class StringBuilder {
+  constructor(str) {
+    this._value = str;
+  }
+  get value() {
+    return this._value;
+  }
+  append(str) {
+    this._value += str;
+    return this.value;
+  }
+  prepend(str) {
+    this._value = str + this._value;
+    return this.value;
+  }
+  pad(str) {
+    this._value = str + this._value + str;
+    return this.value;
+  }
+}
+
+const builder = new StringBuilder('.');
+
+const handleButtonBeginClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(4);
-
-  employees[nameEmployee.value] = salaryEmployee.value;
-  console.log(employees);
-};
-const handleButtonSolveClick = () => {
-  const totalSalary = countTotalSalary(employees);
-  solution4.textContent = '';
-  solution4.insertAdjacentHTML(
-    'beforeend',
-    `<p>Сумма зарплаты работников составляет: <span class="task4-span">${totalSalary}</span> кредитов.</p>`
-  );
-  document.querySelector('.task4-span').style.color = '#2ac940';
+  solution4.textContent = builder.prepend(string.value);
 };
 
-button4.addEventListener('click', handleButton4Click);
-buttonSolve.addEventListener('click', handleButtonSolveClick);
+const handleButtonEndClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(4);
+  solution4.textContent = builder.append(string.value);
+};
+
+const handleButtonBothEdgesClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(4);
+  solution4.textContent = builder.pad(string.value);
+};
+button4Begin.addEventListener('click', handleButtonBeginClick);
+button4End.addEventListener('click', handleButtonEndClick);
+button4BothEdges.addEventListener('click', handleButtonBothEdgesClick);
