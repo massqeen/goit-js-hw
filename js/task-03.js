@@ -1,55 +1,77 @@
-const button3 = document.getElementById('button-3'),
-  buttonSolve = document.getElementById('button-3-1'),
-  employees = {},
-  nameEmployee = document.getElementById('nameEmployee'),
-  solution3 = document.querySelector('.solution-3'),
-  tasksEmployee = document.getElementById('tasksEmployee');
+const button3Add = document.getElementById('button-3Add'),
+  button3Remove = document.getElementById('button-3Remove'),
+  button3Show = document.getElementById('button-3Show'),
+  goodName = document.getElementById('goodName'),
+  solution3 = document.querySelector('.solution-3');
 
-const findBestEmployee = (obj) => {
-  let bestEmployees = [],
-    maxTasks = 0;
-
-  for (const entry of Object.entries(obj)) {
-    if (maxTasks < entry[1]) {
-      bestEmployees = [];
-      maxTasks = +entry[1];
-      bestEmployees.push(entry[0]);
-    } else if (maxTasks === +entry[1]) {
-      bestEmployees.push(entry[0]);
+class Storage {
+  constructor(goodsArr) {
+    this.goods = goodsArr;
+  }
+  getItems() {
+    return this.goods;
+  }
+  goodsToLowerCase() {
+    const lowerCaseArr = [];
+    this.goods.forEach((itemArr) => lowerCaseArr.push(itemArr.toLowerCase()));
+    return lowerCaseArr;
+  }
+  addItem(item) {
+    if (this.goodsToLowerCase().includes(item.toLowerCase())) {
+      alert('Такой товар уже есть!');
+      return;
     }
+    this.goods.push(item);
+    // eslint-disable-next-line consistent-return
+    return `Товар "${item}" успешно добавлен!`;
   }
-  if (bestEmployees.length > 1) {
-    return [
-      'Самые продуктивные сотрудники: ',
-      bestEmployees.join(', ') + '; ',
-      `выполнено ${maxTasks} задач.`
-    ];
+  removeItem(item) {
+    if (
+      this.goods.findIndex(
+        (arrItem) => arrItem.toLowerCase() === item.toLowerCase()
+      ) === -1
+    ) {
+      alert('Такого товара на складе нет!');
+      return;
+    }
+    this.goods.splice(
+      this.goods.findIndex(
+        (arrItem) => arrItem.toLowerCase() === item.toLowerCase()
+      ),
+      1
+    );
+    // eslint-disable-next-line consistent-return
+    return `Товар "${item}" успешно удален!`;
   }
-  return [
-    'Самый продуктивный сотрудник: ',
-    bestEmployees.join(', ') + '; ',
-    `выполнено ${maxTasks} задач.`
-  ];
-};
-const handleButton3Click = (event) => {
+}
+
+const storage = new Storage([
+  'Нанитоиды',
+  'Пролонгер',
+  'Железные жупи',
+  'Антигравитатор'
+]);
+
+const handleButtonAddClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(3);
-  employees[nameEmployee.value] = tasksEmployee.value;
-  console.log(employees);
-};
-const handleButtonSolveClick = () => {
-  const resultArray = findBestEmployee(employees);
-  solution3.textContent = '';
-  if (Object.keys(employees).length) {
-    solution3.insertAdjacentHTML(
-      'beforeend',
-      `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
-    );
-    document.querySelector('.task3-span').style.color = '#2ac940';
-  } else {
-    alert('Внесите в базу хотя бы одного сотрудника!');
-  }
+
+  solution3.textContent = storage.addItem(goodName.value);
 };
 
-button3.addEventListener('click', handleButton3Click);
-buttonSolve.addEventListener('click', handleButtonSolveClick);
+const handleButtonRemoveClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(3);
+
+  solution3.textContent = storage.removeItem(goodName.value);
+};
+
+const handleButtonShowClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(3);
+
+  solution3.textContent = storage.getItems().join(', ');
+};
+button3Add.addEventListener('click', handleButtonAddClick);
+button3Remove.addEventListener('click', handleButtonRemoveClick);
+button3Show.addEventListener('click', handleButtonShowClick);

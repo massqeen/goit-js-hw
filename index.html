@@ -91,44 +91,34 @@
         <h2 class="section-title">Задание 3</h2>
         <form action="#">
           <fieldset>
-            <legend>Самый продуктивный сотрудник</legend>
+            <legend>Управление складом товаров</legend>
             <p style="max-width: 700px;">
-              Внесите данные по всем своим сотрудникам: занесите в форму имя
-              сотрудника и количество выполненных им задач, затем нажмите
-              "Внести данные". Процедуру необходимо повторить для каждого
-              сотрудника. Для определения лучшего сотрудника нажмите "Определить
-              лучшего"
+              Введите название товара, затем выберите что необходимо с ним
+              сделать - добавить на склад или удалить со склада
             </p>
-            <label for="nameEmployee"
-              >Введите имя сотрудника (должно быть уникально):</label
-            ><br />
+            <label for="goodName">Введите название товара:</label><br />
             <input
-              id="nameEmployee"
-              name="nameEmployee"
+              id="goodName"
+              name="goodName"
               required
               type="text"
               minlength="2"
+              value="Дроиды"
+              style="width: 216px;"
             /><br />
-            <label for="tasksEmployee"
-              >Введите количество выполненных сотрудником задач:</label
-            ><br />
-            <input
-              id="tasksEmployee"
-              name="tasksEmployee"
-              required
-              type="number"
-              minlength="1"
-            /><br />
-            <button id="button-3" type="submit" style="margin-top: 10px;">
-              Внести данные
+            <button id="button-3Add" type="submit" style="margin-top: 10px;">
+              Добавить товар
+            </button>
+            <button id="button-3Remove" type="submit" style="margin-top: 10px;">
+              Удалить товар
             </button>
             <br />
           </fieldset>
         </form>
-        <button id="button-3-1" style="margin-top: 10px;">
-          Определить лучшего
+        <button id="button-3Show" type="submit" style="margin-top: 10px;">
+          Просмотреть товары на складе
         </button>
-        <div class="solution-3"></div>
+        <div class="solution-3" style="margin-top: 10px;"></div>
       </section>
 
       <section class="task-4">
@@ -146,7 +136,7 @@
               >Введите имя сотрудника (должно быть уникально):</label
             ><br />
             <input
-              id="nameEmployeeTask4"
+              id="nameEmployee"
               name="nameEmployee"
               required
               type="text"
