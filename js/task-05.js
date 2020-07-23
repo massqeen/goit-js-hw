@@ -1,33 +1,94 @@
-const button5 = document.getElementById('button-5'),
-  products = [
-    { name: 'Радар', price: 1300, quantity: 4 },
-    { name: 'Сканер', price: 2700, quantity: 3 },
-    { name: 'Дроид', price: 400, quantity: 7 },
-    { name: 'Захват', price: 1200, quantity: 2 }
-  ],
-  property = document.getElementById('property'),
-  solution5 = document.querySelector('.solution-5');
+const buttonAccelerate = document.getElementById('buttonAccelerate'),
+  buttonBrake = document.getElementById('buttonBrake'),
+  buttonHours = document.getElementById('buttonHours'),
+  buttonPrice = document.getElementById('buttonPrice'),
+  buttonTurnOnOff = document.getElementById('turnOn-Off'),
+  hoursInput = document.getElementById('hours'),
+  priceInput = document.getElementById('price'),
+  solution5 = document.querySelector('.solution-5'),
+  speedDeltaInput = document.getElementById('speedDelta');
 
-const getAllPropValues = (arr, prop) => {
-  const allValues = [];
-  for (const objItem of arr) {
-    if (objItem[prop]) {
-      allValues.push(objItem[prop]);
+class Car {
+  static getSpecs({ maxSpeed, speed, isOn, distance, price }) {
+    return `Max speed: ${maxSpeed} km/h, speed: ${speed} km/h, is on: ${isOn}, distance: ${distance} km, price: ${price}.`;
+  }
+  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
+    this.speed = speed;
+    this._price = price;
+    this.maxSpeed = maxSpeed;
+    this.isOn = isOn;
+    this.distance = distance;
+  }
+  get price() {
+    return this._price;
+  }
+  set price(newPrice) {
+    this._price = newPrice;
+  }
+  turnOnOff() {
+    this.isOn = this.isOn === false;
+    if (!this.isOn) {
+      this.speed = 0;
     }
   }
-  return allValues;
-};
-const handleButtonClick = (event) => {
+  accelerate(value) {
+    if (!this.isOn) {
+      this.turnOnOff();
+    }
+    this.speed =
+      this.speed + value <= this.maxSpeed ? this.speed + value : this.maxSpeed;
+  }
+  brake(value) {
+    this.speed = this.speed - value >= 0 ? this.speed - value : 0;
+  }
+  drive(hours) {
+    if (!this.isOn || this.speed === 0) {
+      alert('Заведите авто и нажмите на газ!');
+      return;
+    }
+    this.distance += hours * this.speed;
+  }
+}
+const mustang = new Car({ maxSpeed: 200, price: 2000 });
+solution5.textContent = Car.getSpecs(mustang);
+
+const handleButtonPriceClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(5);
-  const result = getAllPropValues(products, property.value);
-
-  if (!!result.length) {
-    solution5.textContent = result.join(', ') + '.';
-  } else {
-    solution5.textContent =
-      'В исходном массиве нет объектов с таким свойством!';
-  }
+  mustang.price = Math.abs(priceInput.value);
+  solution5.textContent = Car.getSpecs(mustang);
 };
 
-button5.addEventListener('click', handleButtonClick);
+const handleButtonTurnOnOffClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.turnOnOff();
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonAccelerateClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.accelerate(Math.abs(speedDeltaInput.value));
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonBrakeClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.brake(Math.abs(speedDeltaInput.value));
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonHoursClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.drive(Math.abs(hoursInput.value));
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+buttonPrice.addEventListener('click', handleButtonPriceClick);
+buttonTurnOnOff.addEventListener('click', handleButtonTurnOnOffClick);
+buttonAccelerate.addEventListener('click', handleButtonAccelerateClick);
+buttonBrake.addEventListener('click', handleButtonBrakeClick);
+buttonHours.addEventListener('click', handleButtonHoursClick);
