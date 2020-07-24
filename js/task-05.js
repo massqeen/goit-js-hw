@@ -10,7 +10,8 @@ const buttonAccelerate = document.getElementById('buttonAccelerate'),
 
 class Car {
   static getSpecs({ maxSpeed, speed, isOn, distance, price }) {
-    return `Max speed: ${maxSpeed} km/h, speed: ${speed} km/h, is on: ${isOn}, distance: ${distance} km, price: ${price}.`;
+    return `Max speed: ${maxSpeed} km/h, speed: ${speed} km/h, is on: ${isOn}, 
+    distance: ${distance} km, price: ${price}.`;
   }
   constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
     this.speed = speed;
