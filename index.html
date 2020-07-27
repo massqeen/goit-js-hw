@@ -126,6 +126,7 @@
         <form action="#">
           <fieldset>
             <legend>Создание строки</legend>
+
             <label for="string">Введите значение для добавления в строку:</label
             ><br />
             <input
@@ -151,13 +152,15 @@
             >
               Добавить значение в конец строки
             </button>
+
             <button
               id="button-4BothEdges"
               type="submit"
               style="margin-top: 10px; max-width: 160px;"
             >
               Добавить значение в начало и конец строки
-            </button><br />
+            </button>
+            <br />
           </fieldset>
         </form>
 
@@ -194,62 +197,6 @@
             <label for="speedDelta"
               >Введите на сколько км/ч изменить текущую скорость </label
             ><br />
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Просмотр сделанных заказов</legend>
-            <label>Нажмите на кнопку для просмотра заказов:</label><br />
-            <button
-              id="button-1-orders"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Показать
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Новый заказ</legend>
-            <label for="orderPrice">Введите цену заказа:</label><br />
-            <input
-              id="orderPrice"
-              name="orderPrice"
-              required
-              type="number"
-              minlength="1"
-              value="1000"
-            />
-            <button
-              id="button-1-addOrder"
-              style="margin-top: 10px; margin-bottom: 10px;"
-            >
-              Подтвердить заказ
-            </button>
-          </fieldset>
-        </form>
-        <div class="solution-1">Текущий баланс: 24000</div>
-      </section>
-
-      <section class="task-2">
-        <h2 class="section-title">Задание 2</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Добавление предмета в инвентарь</legend>
-            <label for="addItem">Введите название предмета:</label><br />
-            <input
-              id="addItem"
-              name="addItem"
-              required
-              type="text"
-              value="Medkit"
-            />
-
-            <button
-              id="button-2-addItem"
-              type="submit"
-              style="margin-top: 10px; margin-bottom: 10px; max-width: 160px;"
-            >
             <input
               id="speedDelta"
               name="speedDelta"
@@ -290,40 +237,11 @@
               style="margin-top: 10px; max-width: 160px;"
             >
               Подтвердить
-              Добавить предмет
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Удаление предмета из инвентаря</legend>
-            <label for="removeItem">Введите название предмета:</label><br />
-            <input
-              id="removeItem"
-              name="removeItem"
-              required
-              type="text"
-              value="Gas mask"
-            />
-
-            <button
-              id="button-2-removeItem"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Удалить предмет
-            </button>
-          </fieldset>
-        </form>
-        <div class="solution-2">В инвентаре: Knife, Gas mask</div>
-=======
             </button>
           </fieldset>
         </form>
 
         <div class="solution-5" style="margin-top: 10px;"></div>
->>>>>>> gh-pages
       </section>
     </main>
     <script src="./js/tinycon.min.js"></script>
@@ -339,6 +257,5 @@
     <script type="module" src="./js/task-03.js"></script>
     <script type="module" src="./js/task-04.js"></script>
     <script type="module" src="./js/task-05.js"></script>
-
   </body>
 </html>
