@@ -11,7 +11,7 @@ Account.prototype.getInfo = function () {
   solution1.textContent = `Login: ${this.login}, Email: ${this.email}`;
 };
 
-const handleOrdersBtnClick = (event) => {
+const handleButtonClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(1);
   const account = new Account(login.value, email.value);
@@ -19,6 +19,4 @@ const handleOrdersBtnClick = (event) => {
   console.log(account);
 };
 
-discountBtn.addEventListener('click', handleDiscountBtnClick);
-ordersBtn.addEventListener('click', handleOrdersBtnClick);
-addOrderBtn.addEventListener('click', handleAddOrderBtnClick);
+button1.addEventListener('click', handleButtonClick);

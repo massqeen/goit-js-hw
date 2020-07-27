@@ -23,5 +23,4 @@ const handleButtonClick = (event) => {
   solution2.textContent = user.getInfo();
 };
 
-addItemBtn.addEventListener('click', handleAddItemBtnClick);
-removeItemBtn.addEventListener('click', handleRemoveItemBtnClick);
+button2.addEventListener('click', handleButtonClick);
