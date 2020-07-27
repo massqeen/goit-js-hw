@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> gh-pages
 const button1 = document.getElementById('button-1'),
   email = document.getElementById('email'),
   login = document.getElementById('login'),
@@ -10,6 +13,7 @@ const Account = function (inputLogin, inputEmail) {
 };
 Account.prototype.getInfo = function () {
   solution1.textContent = `Login: ${this.login}, Email: ${this.email}`;
+<<<<<<< HEAD
 =======
 const addOrderBtn = document.getElementById('button-1-addOrder'),
   addOrderInput = document.getElementById('orderPrice'),
@@ -47,11 +51,14 @@ const handleDiscountBtnClick = (event) => {
   }
   alert('Введите число от 0 до 0,5!');
 >>>>>>> 1652ee1d2a434292091dcaa4295b6aac04105084
+=======
+>>>>>>> gh-pages
 };
 
 const handleOrdersBtnClick = (event) => {
   event.preventDefault();
   Tinycon.setBubble(1);
+<<<<<<< HEAD
 <<<<<<< HEAD
   const account = new Account(login.value, email.value);
   account.getInfo();
@@ -76,6 +83,11 @@ const handleAddOrderBtnClick = (event) => {
   }
   alert('Введите число больше  0!');
 >>>>>>> 1652ee1d2a434292091dcaa4295b6aac04105084
+=======
+  const account = new Account(login.value, email.value);
+  account.getInfo();
+  console.log(account);
+>>>>>>> gh-pages
 };
 
 discountBtn.addEventListener('click', handleDiscountBtnClick);

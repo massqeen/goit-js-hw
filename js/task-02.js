@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> gh-pages
 const button2 = document.getElementById('button-2'),
   solution2 = document.querySelector('.solution-2'),
   userAge = document.getElementById('userAge'),
@@ -17,6 +20,7 @@ class User {
 }
 
 const handleButtonClick = (event) => {
+<<<<<<< HEAD
   event.preventDefault();
   Tinycon.setBubble(2);
   const user = new User(userName.value, userAge.value, userFollowers.value);
@@ -47,9 +51,12 @@ const invokeInventoryAction = function (itemName, action) {
 };
 
 const handleAddItemBtnClick = (event) => {
+=======
+>>>>>>> gh-pages
   event.preventDefault();
   Tinycon.setBubble(2);
 
+<<<<<<< HEAD
   invokeInventoryAction(addItemInput.value, inventory.add.bind(inventory));
   solution.textContent = `В инвентаре: ${inventory.items.join(', ')}.`;
 };
@@ -66,5 +73,7 @@ const handleRemoveItemBtnClick = (event) => {
 >>>>>>> 1652ee1d2a434292091dcaa4295b6aac04105084
 };
 
+=======
+>>>>>>> gh-pages
 addItemBtn.addEventListener('click', handleAddItemBtnClick);
 removeItemBtn.addEventListener('click', handleRemoveItemBtnClick);
