@@ -1,31 +1,49 @@
-const button4 = document.getElementById('button-4'),
-  creditsOutput = document.querySelector('.credits'),
-  droidPrice = 3000,
-  droidsInput = document.getElementById('droid'),
-  droidsOutput = document.querySelector('.droids-number');
-let credits = 23580,
-  droids = 0,
-  droidsTotal = 0;
+const button4Begin = document.getElementById('button-4Begin'),
+  button4BothEdges = document.getElementById('button-4BothEdges'),
+  button4End = document.getElementById('button-4End'),
+  solution4 = document.querySelector('.solution-4'),
+  string = document.getElementById('string');
 
-button4.addEventListener('click', event => {
-  event.preventDefault();
-  droids = Number(droidsInput.value);
-
-  Tinycon.setBubble(4);
-
-  if (droids <= 0 || Number.isNaN(droids)) {
-    alert('Пожалуйста, введите число больше 0!');
-  } else if (Number.isInteger(droids)) {
-    if (credits >= droids * droidPrice) {
-      credits -= droids * droidPrice;
-      droidsTotal += droids;
-      creditsOutput.textContent = credits;
-      droidsOutput.textContent = droidsTotal;
-      creditsOutput.style.color = credits < 3000 ? '#E52F20' : '#000';
-    } else {
-      alert('На вашем счете недостаточно кредитов :(');
-    }
-  } else {
-    alert('Извините, мы не продаем дроидов по частям!');
+class StringBuilder {
+  constructor(str) {
+    this._value = str;
   }
-});
+  get value() {
+    return this._value;
+  }
+  append(str) {
+    this._value += str;
+    return this.value;
+  }
+  prepend(str) {
+    this._value = str + this._value;
+    return this.value;
+  }
+  pad(str) {
+    this._value = str + this._value + str;
+    return this.value;
+  }
+}
+
+const builder = new StringBuilder('.');
+
+const handleButtonBeginClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(4);
+  solution4.textContent = builder.prepend(string.value);
+};
+
+const handleButtonEndClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(4);
+  solution4.textContent = builder.append(string.value);
+};
+
+const handleButtonBothEdgesClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(4);
+  solution4.textContent = builder.pad(string.value);
+};
+button4Begin.addEventListener('click', handleButtonBeginClick);
+button4End.addEventListener('click', handleButtonEndClick);
+button4BothEdges.addEventListener('click', handleButtonBothEdgesClick);

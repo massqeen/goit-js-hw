@@ -2,153 +2,268 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS-HW-01</title>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>JS-HW-05</title>
+    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
   <body>
     <header class="header">
-      <h1 class="title">Домашняя работа №1</h1>
+      <h1 class="title">Домашняя работа №5</h1>
     </header>
     <main>
       <section class="task-1">
         <h2 class="section-title">Задание 1</h2>
         <form action="#">
           <fieldset>
-            <legend>Выбор товара</legend>
-            <label for="good-1">Введите название товара:</label><br />
+            <legend>Функция-конструктор Account</legend>
+            <label for="login">Введите желаемый логин</label><br />
             <input
-              type="text"
-              id="good-1"
-              name="good-1"
-              value="Генератор защитного поля"
+              id="login"
+              name="login"
               required
-            />
-            <button type="submit" id="button-1">Выбрать</button>
+              type="text"
+              minlength="1"
+              value="Mangozedog"
+              style="margin-bottom: 6px; width: 200px;"
+            /><br />
+            <label for="email">Введите e-mail</label><br />
+            <input
+              id="email"
+              name="email"
+              required
+              type="email"
+              value="mango@dog.woof"
+              style="width: 200px;"
+            /><br />
+            <button id="button-1" type="submit" style="margin-top: 10px;">
+              Внести данные
+            </button>
             <br />
           </fieldset>
         </form>
         <div class="solution-1"></div>
       </section>
+
       <section class="task-2">
         <h2 class="section-title">Задание 2</h2>
         <form action="#">
           <fieldset>
-            <legend>Заказ товаров на складе</legend>
-            <label for="good-2"
-              >Введите количество единиц товара для заказа:</label
-            ><br />
+            <legend>Класс User для создания пользователя</legend>
+            <label for="userName">Введите имя пользователя</label><br />
             <input
-              type="number"
-              id="good-2"
-              name="good-2"
-              value="10"
+              id="userName"
+              name="userName"
               required
-            />
-            <button type="submit" id="button-2">Заказать</button>
+              type="text"
+              minlength="1"
+              value="Mango"
+              style="margin-bottom: 6px; width: 200px;"
+            /><br />
+            <label for="userAge">Введите возраст</label><br />
+            <input
+              id="userAge"
+              name="userAge"
+              required
+              type="number"
+              value="18"
+              style="margin-bottom: 6px; width: 200px;"
+            /><br />
+            <label for="userFollowers">Введите число подписчиков</label><br />
+            <input
+              id="userFollowers"
+              name="userFollowers"
+              required
+              type="number"
+              value="10"
+              style="width: 200px;"
+            /><br />
+            <button id="button-2" type="submit" style="margin-top: 10px;">
+              Внести данные
+            </button>
             <br />
           </fieldset>
         </form>
         <div class="solution-2"></div>
       </section>
+
       <section class="task-3">
         <h2 class="section-title">Задание 3</h2>
-        <form action="#" method="GET">
+        <form action="#">
           <fieldset>
-            <legend>Авторизация администратора</legend>
-            <label for="password">Введите пароль администратора:</label><br />
+            <legend>Управление складом товаров</legend>
+            <p style="max-width: 700px;">
+              Введите название товара, затем выберите что необходимо с ним
+              сделать - добавить на склад или удалить со склада
+            </p>
+            <label for="goodName">Введите название товара:</label><br />
             <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="current-password"
+              id="goodName"
+              name="goodName"
               required
-            />
-            <button type="submit" id="button-3">Подтвердить</button>
+              type="text"
+              minlength="2"
+              value="Дроиды"
+              style="width: 216px;"
+            /><br />
+            <button id="button-3Add" type="submit" style="margin-top: 10px;">
+              Добавить товар
+            </button>
+            <button id="button-3Remove" type="submit" style="margin-top: 10px;">
+              Удалить товар
+            </button>
             <br />
           </fieldset>
         </form>
-        <div class="solution-3"></div>
+        <button id="button-3Show" type="submit" style="margin-top: 10px;">
+          Просмотреть товары на складе
+        </button>
+        <div class="solution-3" style="margin-top: 10px;"></div>
       </section>
+
       <section class="task-4">
         <h2 class="section-title">Задание 4</h2>
         <form action="#">
           <fieldset>
+<<<<<<< HEAD
             <legend>Покупка ремонтных дроидов</legend>
             <label for="droid">Введите количество дроидов для покупки:</label
             ><br />
             <input type="number" id="droid" name="droid" value="1" required />
             <button type="submit" id="button-4">Купить</button>
+=======
+            <legend>Создание строки</legend>
+
+            <label for="string">Введите значение для добавления в строку:</label
+            ><br />
+            <input
+              id="string"
+              name="string"
+              required
+              type="text"
+              minlength="1"
+              value="^"
+              style="width: 216px;"
+            /><br />
+            <button
+              id="button-4Begin"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Добавить значение в начало строки
+            </button>
+            <button
+              id="button-4End"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Добавить значение в конец строки
+            </button>
+
+            <button
+              id="button-4BothEdges"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Добавить значение в начало и конец строки
+            </button>
+>>>>>>> hw-05
             <br />
           </fieldset>
         </form>
-        <p class="credits-info">
-          На вашем счете: <span class="credits">23580</span> кредитов
-        </p>
-        <p class="droids-price">Стоимость 1 дроида: 3000 кредитов</p>
-        <p class="droids-info">
-          Приобретено дроидов: <span class="droids-number">0</span>
-        </p>
+
+        <div class="solution-4" style="margin-top: 10px;"></div>
       </section>
+
       <section class="task-5">
         <h2 class="section-title">Задание 5</h2>
         <form action="#">
           <fieldset>
-            <legend>Оформление адресной доставки</legend>
-            <label for="country">Введите страну для доставки товара:</label
-            ><br />
+            <legend>Автомобиль</legend>
+            <label for="price">Установите цену автомобиля</label><br />
             <input
-              type="text"
-              id="country"
-              name="country"
-              value="Китай"
-              minlength="2"
+              id="price"
+              name="price"
               required
-            />
-            <button type="submit" id="button-5">Заказать</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-5"></div>
-      </section>
-      <section class="task-6">
-        <h2 class="section-title">Задание 6</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Сумма чисел</legend>
-            <label
-              >Нажмите на кнопку и в появившемся окне последовательно введите
-              числа для суммирования:</label
-            ><br />
+              type="number"
+              minlength="1"
+              value="3000"
+              style="width: 216px; margin-top: 6px;"
+            /><br />
             <button
+              id="buttonPrice"
               type="submit"
-              id="button-6"
-              style="padding: 5px 10px; margin-top: 10px;"
+              style="margin-top: 10px; margin-bottom: 10px; max-width: 160px;"
             >
-              Начать ввод чисел
+              Установить
             </button>
             <br />
+
+            <button id="turnOn-Off" type="submit" style="margin-bottom: 10px;">
+              Завести/заглушить авто</button
+            ><br />
+            <label for="speedDelta"
+              >Введите на сколько км/ч изменить текущую скорость </label
+            ><br />
+            <input
+              id="speedDelta"
+              name="speedDelta"
+              required
+              type="number"
+              minlength="1"
+              value="10"
+              style="width: 216px; margin-top: 6px;"
+            /><br />
+            <button
+              id="buttonAccelerate"
+              type="submit"
+              style="margin-top: 10px; margin-bottom: 10px; max-width: 160px;"
+            >
+              Увеличить
+            </button>
+            <button
+              id="buttonBrake"
+              type="submit"
+              style="margin-top: 10px; margin-bottom: 10px; max-width: 160px;"
+            >
+              Уменьшить
+            </button>
+            <br />
+            <label for="hours">Сколько часов необходимо ехать?</label><br />
+            <input
+              id="hours"
+              name="hours"
+              required
+              type="number"
+              minlength="1"
+              value="2"
+              style="width: 216px; margin-top: 6px;"
+            /><br />
+            <button
+              id="buttonHours"
+              type="submit"
+              style="margin-top: 10px; max-width: 160px;"
+            >
+              Подтвердить
+            </button>
           </fieldset>
         </form>
-        <div class="solution-6">
-          Сумма введенных чисел: <span class="total-sum"></span>
-        </div>
+
+        <div class="solution-5" style="margin-top: 10px;"></div>
       </section>
     </main>
-    <script type="module" src="./js/task-01.js"></script>
-    <script type="module" src="./js/task-02.js"></script>
-    <script type="module" src="./js/task-03.js"></script>
-    <script type="module" src="./js/task-04.js"></script>
-    <script type="module" src="./js/task-05.js"></script>
-    <script type="module" src="./js/task-06.js"></script>
     <script src="./js/tinycon.min.js"></script>
     <script>
       Tinycon.setOptions({
         width: 6,
         font: '9px arial',
-        background: '#549a2f',
+        background: '#549a2f'
       });
     </script>
+    <script type="module" src="./js/task-01.js"></script>
+    <script type="module" src="./js/task-02.js"></script>
+    <script type="module" src="./js/task-03.js"></script>
+    <script type="module" src="./js/task-04.js"></script>
+    <script type="module" src="./js/task-05.js"></script>
   </body>
 </html>

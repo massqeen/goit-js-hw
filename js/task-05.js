@@ -1,57 +1,95 @@
-const button5 = document.getElementById('button-5'),
-  countryEl = document.getElementById('country'),
-  solution5 = document.querySelector('.solution-5');
-let price;
+const buttonAccelerate = document.getElementById('buttonAccelerate'),
+  buttonBrake = document.getElementById('buttonBrake'),
+  buttonHours = document.getElementById('buttonHours'),
+  buttonPrice = document.getElementById('buttonPrice'),
+  buttonTurnOnOff = document.getElementById('turnOn-Off'),
+  hoursInput = document.getElementById('hours'),
+  priceInput = document.getElementById('price'),
+  solution5 = document.querySelector('.solution-5'),
+  speedDeltaInput = document.getElementById('speedDelta');
 
-function capitalizeFirstLetter(string) {
-  return string[0].toUpperCase() + string.slice(1);
-}
-
-button5.addEventListener('click', event => {
-  event.preventDefault();
-  let country = countryEl.value;
-  country = country.trim();
-  country = country.toLowerCase();
-
-  Tinycon.setBubble(5);
-
-  switch (country) {
-    case 'китай':
-      price = 100;
-      solution5.textContent = `Доставка в 
-      ${capitalizeFirstLetter(country)} будет 
-      стоить ${price} кредитов`;
-      break;
-
-    case 'чили':
-      price = 250;
-      solution5.textContent = `Доставка в 
-      ${capitalizeFirstLetter(country)} будет 
-      стоить ${price} кредитов`;
-      break;
-
-    case 'австралия':
-      price = 170;
-      solution5.textContent = `Доставка в 
-      ${capitalizeFirstLetter(country)} будет 
-      стоить ${price} кредитов`;
-      break;
-
-    case 'индия':
-      price = 80;
-      solution5.textContent = `Доставка в 
-      ${capitalizeFirstLetter(country)} будет 
-      стоить ${price} кредитов`;
-      break;
-
-    case 'ямайка':
-      price = 120;
-      solution5.textContent = `Доставка в 
-      ${capitalizeFirstLetter(country)} будет 
-      стоить ${price} кредитов`;
-      break;
-
-    default:
-      solution5.textContent = 'В вашей стране доставка не доступна';
+class Car {
+  static getSpecs({ maxSpeed, speed, isOn, distance, price }) {
+    return `Max speed: ${maxSpeed} km/h, speed: ${speed} km/h, is on: ${isOn}, 
+    distance: ${distance} km, price: ${price}.`;
   }
-});
+  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
+    this.speed = speed;
+    this._price = price;
+    this.maxSpeed = maxSpeed;
+    this.isOn = isOn;
+    this.distance = distance;
+  }
+  get price() {
+    return this._price;
+  }
+  set price(newPrice) {
+    this._price = newPrice;
+  }
+  turnOnOff() {
+    this.isOn = this.isOn === false;
+    if (!this.isOn) {
+      this.speed = 0;
+    }
+  }
+  accelerate(value) {
+    if (!this.isOn) {
+      this.turnOnOff();
+    }
+    this.speed =
+      this.speed + value <= this.maxSpeed ? this.speed + value : this.maxSpeed;
+  }
+  brake(value) {
+    this.speed = this.speed - value >= 0 ? this.speed - value : 0;
+  }
+  drive(hours) {
+    if (!this.isOn || this.speed === 0) {
+      alert('Заведите авто и нажмите на газ!');
+      return;
+    }
+    this.distance += hours * this.speed;
+  }
+}
+const mustang = new Car({ maxSpeed: 200, price: 2000 });
+solution5.textContent = Car.getSpecs(mustang);
+
+const handleButtonPriceClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.price = Math.abs(priceInput.value);
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonTurnOnOffClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.turnOnOff();
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonAccelerateClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.accelerate(Math.abs(speedDeltaInput.value));
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonBrakeClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.brake(Math.abs(speedDeltaInput.value));
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+const handleButtonHoursClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(5);
+  mustang.drive(Math.abs(hoursInput.value));
+  solution5.textContent = Car.getSpecs(mustang);
+};
+
+buttonPrice.addEventListener('click', handleButtonPriceClick);
+buttonTurnOnOff.addEventListener('click', handleButtonTurnOnOffClick);
+buttonAccelerate.addEventListener('click', handleButtonAccelerateClick);
+buttonBrake.addEventListener('click', handleButtonBrakeClick);
+buttonHours.addEventListener('click', handleButtonHoursClick);

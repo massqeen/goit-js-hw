@@ -1,22 +1,26 @@
-const approve = 'Заказ оформлен, с вами свяжется менеджер',
-  button2 = document.getElementById('button-2'),
-  decline = 'На складе недостаточно товара!',
-  goodEl = document.getElementById('good-2'),
-  solution2 = document.querySelector('.solution-2');
-let total;
+const button2 = document.getElementById('button-2'),
+  solution2 = document.querySelector('.solution-2'),
+  userAge = document.getElementById('userAge'),
+  userFollowers = document.getElementById('userFollowers'),
+  userName = document.getElementById('userName');
 
-button2.addEventListener('click', event => {
-  event.preventDefault();
-
-  Tinycon.setBubble(2);
-
-  if (Number.isNaN(Number(goodEl.value)) || Number(goodEl.value) <= 0) {
-    alert('Пожалуйста, введите число больше 0!');
-  } else if (Number.isInteger(Number(goodEl.value))) {
-    let goodQuantity = Number(goodEl.value);
-    total = Math.round(Math.random() * 1000);
-    solution2.textContent = total >= goodQuantity ? approve : decline;
-  } else {
-    alert('Нужно ввести целое число, пожалуйста, повторите ввод!');
+class User {
+  constructor(name, age, followers) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
   }
-});
+  getInfo() {
+    return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
+  }
+}
+
+const handleButtonClick = (event) => {
+  event.preventDefault();
+  Tinycon.setBubble(2);
+  const user = new User(userName.value, userAge.value, userFollowers.value);
+  console.log(user);
+  solution2.textContent = user.getInfo();
+};
+
+button2.addEventListener('click', handleButtonClick);

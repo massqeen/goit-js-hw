@@ -1,14 +1,22 @@
 const button1 = document.getElementById('button-1'),
-  goodEl = document.getElementById('good-1'),
+  email = document.getElementById('email'),
+  login = document.getElementById('login'),
   solution1 = document.querySelector('.solution-1');
-let price;
 
-button1.addEventListener('click', event => {
+const Account = function (inputLogin, inputEmail) {
+  this.login = inputLogin;
+  this.email = inputEmail;
+};
+Account.prototype.getInfo = function () {
+  solution1.textContent = `Login: ${this.login}, Email: ${this.email}`;
+};
+
+const handleButtonClick = (event) => {
   event.preventDefault();
-
   Tinycon.setBubble(1);
+  const account = new Account(login.value, email.value);
+  account.getInfo();
+  console.log(account);
+};
 
-  let good = goodEl.value;
-  price = Math.round(Math.random() * 1000);
-  solution1.textContent = `Выбран "${good}", цена за штуку ${price} кредитов.`;
-});
+button1.addEventListener('click', handleButtonClick);
