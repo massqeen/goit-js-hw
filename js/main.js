@@ -1,3 +1,4 @@
+// import;
 const button1 = document.getElementById('button-1'),
   email = document.getElementById('email'),
   login = document.getElementById('login'),
