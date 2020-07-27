@@ -1,4 +1,4 @@
-export default [
+const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
     name: 'Moore Hensley',
@@ -84,3 +84,26 @@ export default [
     age: 39
   }
 ];
+export default users;
+// const button1 = document.getElementById('button-1'),
+//   email = document.getElementById('email'),
+//   login = document.getElementById('login'),
+//   solution1 = document.querySelector('.solution-1');
+//
+// const Account = function (inputLogin, inputEmail) {
+//   this.login = inputLogin;
+//   this.email = inputEmail;
+// };
+// Account.prototype.getInfo = function () {
+//   solution1.textContent = `Login: ${this.login}, Email: ${this.email}`;
+// };
+//
+// const handleButtonClick = (event) => {
+//   event.preventDefault();
+//   Tinycon.setBubble(1);
+//   const account = new Account(login.value, email.value);
+//   account.getInfo();
+//   console.log(account);
+// };
+//
+// button1.addEventListener('click', handleButtonClick);
