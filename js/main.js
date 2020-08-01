@@ -1,66 +1,40 @@
-import users from './users.js';
+import { users } from './users.js';
+import { UsersHandler } from './UsersHandler.js';
 
-const getUserNames = (arrOfObj) => arrOfObj.map((obj) => obj.name);
-
-const getUsersWithEyeColor = (arrOfObj, color) =>
-  arrOfObj.filter((obj) => obj.eyeColor === color);
-
-const getUsersWithGender = (arrOfObj, gender) =>
-  arrOfObj.filter((obj) => obj.gender === gender);
-
-const getInactiveUsers = (arrOfObj) => arrOfObj.filter((obj) => !obj.isActive);
-
-const getUserWithEmail = (arrOfObj, email) =>
-  arrOfObj.find((obj) => obj.email === email);
-
-const getUsersWithAge = (arrOfObj, min, max) =>
-  arrOfObj.filter((obj) => obj.age >= min && obj.age <= max);
-
-const calculateTotalBalance = (arrOfObj) =>
-  arrOfObj.reduce((acc, obj) => acc + obj.balance, 0);
-
-const getUsersWithFriend = (arrOfObj, friendName) => {
-  const notFilteredUsers = arrOfObj.map((obj) =>
-    obj.friends.includes(friendName) ? obj.name : false
-  );
-  return notFilteredUsers.filter((item) => item);
-};
-
-const getNamesSortedByFriendsCount = (arrOfObj) => {
-  const sortedUsersObj = [...arrOfObj].sort(
-    (obj1, obj2) => obj1.friends.length - obj2.friends.length
-  );
-  return sortedUsersObj.map((obj) => obj.name);
-};
-
-const getSortedUniqueSkills = (arrOfObj) => {
-  const set = new Set();
-  const uniqueSkills = [];
-  arrOfObj.forEach((obj) => obj.skills.forEach((skill) => set.add(skill)));
-  set.forEach((val) => uniqueSkills.push(val));
-  return uniqueSkills.sort();
-};
+const usersHandler = new UsersHandler();
 
 // 1
-console.log(getUserNames(users));
+console.log('Задание 1: ', usersHandler.getUserNames(users));
 // 2
-console.log(getUsersWithEyeColor(users, 'blue'));
+console.log('Задание 2: ', usersHandler.getUsersWithEyeColor(users, 'blue'));
 // 3
-console.log(getUsersWithGender(users, 'male'));
+console.log('Задание 3: ', usersHandler.getUsersWithGender(users, 'male'));
 // 4
-console.log(getInactiveUsers(users));
+console.log('Задание 4: ', usersHandler.getInactiveUsers(users));
 // 5
-console.log(getUserWithEmail(users, 'shereeanthony@kog.com'));
-console.log(getUserWithEmail(users, 'elmahead@omatom.com'));
+console.log(
+  'Задание 5: ',
+  usersHandler.getUserWithEmail(users, 'shereeanthony@kog.com')
+);
+console.log(
+  'Задание 5: ',
+  usersHandler.getUserWithEmail(users, 'elmahead@omatom.com')
+);
 // 6
-console.log(getUsersWithAge(users, 20, 30));
-console.log(getUsersWithAge(users, 30, 40));
+console.log('Задание 6: ', usersHandler.getUsersWithAge(users, 20, 30));
+console.log('Задание 6: ', usersHandler.getUsersWithAge(users, 30, 40));
 // 7
-console.log(calculateTotalBalance(users));
+console.log('Задание 7: ', usersHandler.calculateTotalBalance(users));
 // 8
-console.log(getUsersWithFriend(users, 'Briana Decker'));
-console.log(getUsersWithFriend(users, 'Goldie Gentry'));
+console.log(
+  'Задание 8: ',
+  usersHandler.getUsersWithFriend(users, 'Briana Decker')
+);
+console.log(
+  'Задание 8: ',
+  usersHandler.getUsersWithFriend(users, 'Goldie Gentry')
+);
 // 9
-console.log(getNamesSortedByFriendsCount(users));
+console.log('Задание 9: ', usersHandler.getNamesSortedByFriendsCount(users));
 // 10
-console.log(getSortedUniqueSkills(users));
+console.log('Задание 10: ', usersHandler.getSortedUniqueSkills(users));
