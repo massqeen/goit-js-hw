@@ -47,6 +47,6 @@ export class UsersHandler {
       acc.push(...user.skills);
       return acc;
     }, []);
-    return Array.from(new Set(allSkills)).sort();
+    return [...new Set(allSkills)].sort();
   }
 }
