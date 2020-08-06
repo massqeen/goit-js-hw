@@ -3,129 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>JS-HW-04</title>
+    <title>JS-HW-06</title>
     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
   <body>
     <header class="header">
-      <h1 class="title">Домашняя работа №4</h1>
+      <h1 class="title">Домашняя работа №6</h1>
     </header>
     <main>
-      <section class="task-1">
-        <h2 class="section-title">Задание 1</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Изменение размера скидки</legend>
-            <label for="discount"
-              >Введите желаемую сумму скидки (в диапазоне от 0 до 0.5:</label
-            ><br />
-            <input
-              id="discount"
-              name="discount"
-              required
-              type="number"
-              value="0"
-              step="any"
-            />
-
-            <button
-              id="button-1-discount"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Внести данные
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Просмотр сделанных заказов</legend>
-
-            <label>Нажмите на кнопку для просмотра заказов:</label><br />
-
-            <button
-              id="button-1-orders"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Показать
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Новый заказ</legend>
-
-            <label for="orderPrice">Введите цену заказа:</label><br />
-            <input
-              id="orderPrice"
-              name="orderPrice"
-              required
-              type="number"
-              minlength="1"
-              value="1000"
-            />
-            <button
-              id="button-1-addOrder"
-              style="margin-top: 10px; margin-bottom: 10px;"
-            >
-              Подтвердить заказ
-            </button>
-          </fieldset>
-        </form>
-        <div class="solution-1">Текущий баланс: 24000</div>
-      </section>
-
-      <section class="task-2">
-        <h2 class="section-title">Задание 2</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Добавление предмета в инвентарь</legend>
-            <label for="addItem">Введите название предмета:</label><br />
-            <input
-              id="addItem"
-              name="addItem"
-              required
-              type="text"
-              value="Medkit"
-            />
-
-            <button
-              id="button-2-addItem"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Добавить предмет
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Удаление предмета из инвентаря</legend>
-            <label for="removeItem">Введите название предмета:</label><br />
-            <input
-              id="removeItem"
-              name="removeItem"
-              required
-              type="text"
-              value="Gas mask"
-            />
-
-            <button
-              id="button-2-removeItem"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Удалить предмет
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-2">В инвентаре: Knife, Gas mask</div>
+      <section>
+        <h2>Задание 1</h2>
+        <p>Получить массив имен всех пользователей (поле name).</p>
+        <h2>Задание 2</h2>
+        <p>
+          Получить массив объектов пользователей по цвету глаз (поле eyeColor).
+        </p>
+        <h2>Задание 3</h2>
+        <p>Получить массив имен пользователей по полу (поле gender).</p>
+        <h2>Задание 4</h2>
+        <p>Получить массив только неактивных пользователей (поле isActive).</p>
+        <h2>Задание 5</h2>
+        <p>
+          Получить пользоваля (не массив) по email (поле email, он уникальный).
+        </p>
+        <h2>Задание 6</h2>
+        <p>
+          Получить массив пользователей попадающих в возрастную категорию от min
+          до max лет (поле age).
+        </p>
+        <h2>Задание 7</h2>
+        <p>Получить общую сумму баланса (поле balance) всех пользователей.</p>
+        <h2>Задание 8</h2>
+        <p>
+          Массив имен всех пользователей у которых есть друг с указанным именем.
+        </p>
+        <h2>Задание 9</h2>
+        <p>
+          Массив имен (поле name) людей, отсортированных в зависимости от
+          количества их друзей (поле friends).
+        </p>
+        <h2>Задание 10</h2>
+        <p>
+          Получить массив всех умений всех пользователей (поле skills), при этом
+          не должно быть повторяющихся умений и они должны быть отсортированы в
+          алфавитном порядке.
+        </p>
       </section>
     </main>
     <script src="./js/tinycon.min.js"></script>
@@ -136,7 +59,6 @@
         background: '#549a2f'
       });
     </script>
-    <script type="module" src="./js/task-01.js"></script>
-    <script type="module" src="./js/task-02.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
