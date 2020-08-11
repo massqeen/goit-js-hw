@@ -43,10 +43,7 @@ export class UsersHandler {
     }
 
     getSortedUniqueSkills(arrOfObj) {
-        const allSkills = arrOfObj.reduce((acc, user) => {
-            acc.push(...user.skills);
-            return acc;
-        }, []);
+        const allSkills = arrOfObj.reduce((acc, user) => [...acc, ...user.skills], []);
         return [...new Set(allSkills)].sort();
     }
 //alternate getUniqueSkills function
