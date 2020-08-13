@@ -1,12 +1,16 @@
-const button2 = document.getElementById('button-2'),
-  object = { mail: 'poly@mail.com', isOnline: true, score: 500 },
-  solution2 = document.querySelector('.solution-2');
+const ingredientsRef = document.getElementById('ingredients');
+const ingredients = [
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+  'Помидоры',
+  'Зелень',
+  'Приправы'
+];
 
-const countProps = (obj) => Object.values(obj).length;
-const handleButtonClick = (event) => {
-  event.preventDefault();
-  Tinycon.setBubble(2);
-  solution2.textContent = `В объекте ${countProps(object)} свойств`;
-};
-
-button2.addEventListener('click', handleButtonClick);
+const ingredientsListItems = ingredients.map((item) => {
+  const li = document.createElement('li');
+  li.textContent = item;
+  return li;
+});
+ingredientsRef.append(...ingredientsListItems);

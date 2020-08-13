@@ -1,32 +1,9 @@
-const button1 = document.getElementById('button-1'),
-  solution1 = document.querySelector('.solution-1'),
-  userName = document.getElementById('user-name');
+const categoriesItemsRef = document.querySelectorAll('.item');
 
-const user = {
-  name: 'Mango',
-  age: 20,
-  hobby: 'html',
-  premium: true
-};
-
-const handleButtonClick = (event) => {
-  event.preventDefault();
-  Tinycon.setBubble(1);
-
-  solution1.textContent = '';
-  user.name = userName.value;
-  user.mood = 'happy';
-  user.hobby = 'skydiving';
-  user.premium = false;
-  for (const key of Object.keys(user)) {
-    solution1.insertAdjacentHTML(
-      'beforeend',
-      `<p>${key}: <span class="task1-span">${user[key]}</span></p>`
-    );
-    document
-      .querySelectorAll('.task1-span')
-      .forEach((element) => (element.style.color = '#2ac940'));
-  }
-};
-
-button1.addEventListener('click', handleButtonClick);
+console.log(`В списке ${categoriesItemsRef.length} категории.`);
+categoriesItemsRef.forEach((el, index) => {
+  console.group(`Категория ${index + 1}`);
+  console.log(`Категория: ${el.querySelector('h2').textContent}`);
+  console.log(`Количество элементов: ${el.querySelectorAll('li').length}`);
+  console.groupEnd();
+});
