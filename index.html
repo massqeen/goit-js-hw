@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>JS-HW-07</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
@@ -12,282 +14,246 @@
       <h1 class="title">Домашняя работа №7</h1>
     </header>
     <main>
-      <section class="task-1">
-        <h2 class="section-title">Задание 1</h2>
-        <ul id="categories">
-          <li class="item">
-            <h2>Животные</h2>
+      <div class="container">
+        <section class="task-1">
+          <h2 class="section-title">Задание 1</h2>
+          <ul id="categories">
+            <li class="item">
+              <h2>Животные</h2>
 
-            <ul>
-              <li>Кот</li>
-              <li>Хомяк</li>
-              <li>Лошадь</li>
-              <li>Попугай</li>
-            </ul>
-          </li>
-          <li class="item">
-            <h2>Продукты</h2>
+              <ul>
+                <li>Кот</li>
+                <li>Хомяк</li>
+                <li>Лошадь</li>
+                <li>Попугай</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Продукты</h2>
 
-            <ul>
-              <li>Хлеб</li>
-              <li>Петрушка</li>
-              <li>Творог</li>
-            </ul>
-          </li>
-          <li class="item">
-            <h2>Технологии</h2>
+              <ul>
+                <li>Хлеб</li>
+                <li>Петрушка</li>
+                <li>Творог</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Технологии</h2>
 
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Node</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
 
-      <section class="task-2">
-        <h2 class="section-title">Задание 2</h2>
-        <ul id="ingredients"></ul>
-      </section>
+        <section class="task-2">
+          <h2 class="section-title">Задание 2</h2>
+          <ul id="ingredients"></ul>
+        </section>
 
-      <section class="task-3">
-        <h2 class="section-title">Задание 3</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Самый продуктивный сотрудник</legend>
-            <p style="max-width: 700px;">
-              Внесите данные по всем своим сотрудникам: занесите в форму имя
-              сотрудника и количество выполненных им задач, затем нажмите
-              "Внести данные". Процедуру необходимо повторить для каждого
-              сотрудника. Для определения лучшего сотрудника нажмите "Определить
-              лучшего"
-            </p>
-            <label for="nameEmployee"
-              >Введите имя сотрудника (должно быть уникально):</label
-            ><br />
-            <input
-              id="nameEmployee"
-              name="nameEmployee"
-              required
-              type="text"
-              minlength="2"
-            /><br />
-            <label for="tasksEmployee"
-              >Введите количество выполненных сотрудником задач:</label
-            ><br />
-            <input
-              id="tasksEmployee"
-              name="tasksEmployee"
-              required
-              type="number"
-              minlength="1"
-            /><br />
-            <button id="button-3" type="submit" style="margin-top: 10px;">
-              Внести данные
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <button id="button-3-1" style="margin-top: 10px;">
-          Определить лучшего
-        </button>
-        <div class="solution-3"></div>
-      </section>
+        <section class="task-3">
+          <h2 class="section-title">Задание 3</h2>
+          <ul id="gallery" class="gallery"></ul>
+        </section>
 
-      <section class="task-4">
-        <h2 class="section-title">Задание 4</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Сумма зарплаты работников</legend>
-            <p style="max-width: 700px;">
-              Внесите данные по всем своим сотрудникам: занесите в форму имя
-              сотрудника и его зарплату, затем нажмите "Внести данные".
-              Процедуру необходимо повторить для каждого сотрудника. Для
-              определения общей суммы зарплаты нажмите "Вычислить"
-            </p>
-            <label for="nameEmployee"
-              >Введите имя сотрудника (должно быть уникально):</label
-            ><br />
-            <input
-              id="nameEmployeeTask4"
-              name="nameEmployee"
-              required
-              type="text"
-              minlength="2"
-            /><br />
-            <label for="salaryEmployee">Введите зарплату сотрудника:</label
-            ><br />
-            <input
-              id="salaryEmployee"
-              name="salaryEmployee"
-              required
-              type="number"
-              minlength="1"
-            /><br />
-            <button id="button-4" type="submit" style="margin-top: 10px;">
-              Внести данные
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <button id="button-4-1" style="margin-top: 10px;">
-          Вычислить
-        </button>
-        <div class="solution-4"></div>
-      </section>
+        <section class="task-4">
+          <h2 class="section-title">Задание 4</h2>
+          <form action="#">
+            <fieldset>
+              <legend>Сумма зарплаты работников</legend>
+              <p style="max-width: 700px;">
+                Внесите данные по всем своим сотрудникам: занесите в форму имя
+                сотрудника и его зарплату, затем нажмите "Внести данные".
+                Процедуру необходимо повторить для каждого сотрудника. Для
+                определения общей суммы зарплаты нажмите "Вычислить"
+              </p>
+              <label for="nameEmployeeTask4"
+                >Введите имя сотрудника (должно быть уникально):</label
+              ><br />
+              <input
+                id="nameEmployeeTask4"
+                name="nameEmployee"
+                required
+                type="text"
+                minlength="2"
+              /><br />
+              <label for="salaryEmployee">Введите зарплату сотрудника:</label
+              ><br />
+              <input
+                id="salaryEmployee"
+                name="salaryEmployee"
+                required
+                type="number"
+                minlength="1"
+              /><br />
+              <button id="button-4" type="submit" style="margin-top: 10px;">
+                Внести данные
+              </button>
+              <br />
+            </fieldset>
+          </form>
+          <button id="button-4-1" style="margin-top: 10px;">
+            Вычислить
+          </button>
+          <div class="solution-4"></div>
+        </section>
 
-      <section class="task-5">
-        <h2 class="section-title">Задание 5</h2>
-        <p>В исходном массиве содержатся следующие объекты:</p>
-        <p>{ name: 'Радар', price: 1300, quantity: 4 }</p>
-        <p>{ name: 'Сканер', price: 2700, quantity: 3 }</p>
-        <p>{ name: 'Дроид', price: 400, quantity: 7 }</p>
-        <p>{ name: 'Захват', price: 1200, quantity: 2 }</p>
-        <form action="#">
-          <fieldset>
-            <legend>
-              Вывод всех значений заданного свойства из каждого объекта в
-              массиве
-            </legend>
-            <label for="property">Введите искомое свойство:</label><br />
-            <input
-              id="property"
-              minlength="1"
-              name="property"
-              required
-              type="text"
-            />
-            <button id="button-5" type="submit">Результат</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-5"></div>
-      </section>
+        <section class="task-5">
+          <h2 class="section-title">Задание 5</h2>
+          <p>В исходном массиве содержатся следующие объекты:</p>
+          <p>{ name: 'Радар', price: 1300, quantity: 4 }</p>
+          <p>{ name: 'Сканер', price: 2700, quantity: 3 }</p>
+          <p>{ name: 'Дроид', price: 400, quantity: 7 }</p>
+          <p>{ name: 'Захват', price: 1200, quantity: 2 }</p>
+          <form action="#">
+            <fieldset>
+              <legend>
+                Вывод всех значений заданного свойства из каждого объекта в
+                массиве
+              </legend>
+              <label for="property">Введите искомое свойство:</label><br />
+              <input
+                id="property"
+                minlength="1"
+                name="property"
+                required
+                type="text"
+              />
+              <button id="button-5" type="submit">Результат</button>
+              <br />
+            </fieldset>
+          </form>
+          <div class="solution-5"></div>
+        </section>
 
-      <section class="task-6">
-        <h2 class="section-title">Задание 6</h2>
-        <p>В исходном массиве содержатся следующие объекты:</p>
-        <p>{ name: 'Радар', price: 1300, quantity: 4 }</p>
-        <p>{ name: 'Сканер', price: 2700, quantity: 3 }</p>
-        <p>{ name: 'Дроид', price: 400, quantity: 7 }</p>
-        <p>{ name: 'Захват', price: 1200, quantity: 2 }</p>
-        <form action="#">
-          <fieldset>
-            <legend>
-              Подсчет стоимости выбранного продукта
-            </legend>
-            <label for="product"
-              >Введите имя продукта (значение свойства 'name'):</label
-            ><br />
-            <input
-              id="product"
-              minlength="1"
-              name="product"
-              required
-              type="text"
-            />
-            <button id="button-6" type="submit">Результат</button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-6"></div>
-      </section>
+        <section class="task-6">
+          <h2 class="section-title">Задание 6</h2>
+          <p>В исходном массиве содержатся следующие объекты:</p>
+          <p>{ name: 'Радар', price: 1300, quantity: 4 }</p>
+          <p>{ name: 'Сканер', price: 2700, quantity: 3 }</p>
+          <p>{ name: 'Дроид', price: 400, quantity: 7 }</p>
+          <p>{ name: 'Захват', price: 1200, quantity: 2 }</p>
+          <form action="#">
+            <fieldset>
+              <legend>
+                Подсчет стоимости выбранного продукта
+              </legend>
+              <label for="product"
+                >Введите имя продукта (значение свойства 'name'):</label
+              ><br />
+              <input
+                id="product"
+                minlength="1"
+                name="product"
+                required
+                type="text"
+              />
+              <button id="button-6" type="submit">Результат</button>
+              <br />
+            </fieldset>
+          </form>
+          <div class="solution-6"></div>
+        </section>
 
-      <section class="task-7">
-        <h2 class="section-title">Задание 7</h2>
-        <form action="#">
-          <fieldset>
-            <legend>Транзакции по счету</legend>
-            <label for="depositAcc">Введите сумму для пополнения счета:</label
-            ><br />
-            <input
-              id="depositAcc"
-              name="depositAcc"
-              required
-              type="number"
-              minlength="1"
-              value="100"
-            />
+        <section class="task-7">
+          <h2 class="section-title">Задание 7</h2>
+          <form action="#">
+            <fieldset>
+              <legend>Транзакции по счету</legend>
+              <label for="depositAcc">Введите сумму для пополнения счета:</label
+              ><br />
+              <input
+                id="depositAcc"
+                name="depositAcc"
+                required
+                type="number"
+                minlength="1"
+                value="100"
+              />
 
-            <button
-              id="button-7-deposit"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Внести данные
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#">
-          <fieldset>
-            <legend>Транзакции по счету</legend>
+              <button
+                id="button-7-deposit"
+                type="submit"
+                style="margin-top: 10px;"
+              >
+                Внести данные
+              </button>
+              <br />
+            </fieldset>
+          </form>
+          <form action="#">
+            <fieldset>
+              <legend>Транзакции по счету</legend>
 
-            <label for="withdrawAcc">Введите сумму для снятия со счета:</label
-            ><br />
-            <input
-              id="withdrawAcc"
-              name="withdrawAcc"
-              required
-              type="number"
-              minlength="1"
-              value="0"
-            />
-            <button
-              id="button-7-withdraw"
-              type="submit"
-              style="margin-top: 10px;"
-            >
-              Внести данные
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <form action="#" style="margin-top: 10px;">
-          <fieldset>
-            <legend>Истории операций</legend>
+              <label for="withdrawAcc">Введите сумму для снятия со счета:</label
+              ><br />
+              <input
+                id="withdrawAcc"
+                name="withdrawAcc"
+                required
+                type="number"
+                minlength="1"
+                value="0"
+              />
+              <button
+                id="button-7-withdraw"
+                type="submit"
+                style="margin-top: 10px;"
+              >
+                Внести данные
+              </button>
+              <br />
+            </fieldset>
+          </form>
+          <form action="#" style="margin-top: 10px;">
+            <fieldset>
+              <legend>Истории операций</legend>
 
-            <label for="idDetails"
-              >Введите порядковый номер транзакции для просмотра:</label
-            ><br />
-            <input
-              id="idDetails"
-              name="idDetails"
-              required
-              type="number"
-              minlength="1"
-              value="1"
-            />
-            <button
-              id="button-7-idDetails"
-              style="margin-top: 10px; margin-bottom: 10px;"
-            >
-              Получить данные
-            </button>
-            <br />
-            <label for="typeTransaction"
-              >Выберите тип транзакции для просмотра общей суммы по нему:</label
-            ><br />
+              <label for="idDetails"
+                >Введите порядковый номер транзакции для просмотра:</label
+              ><br />
+              <input
+                id="idDetails"
+                name="idDetails"
+                required
+                type="number"
+                minlength="1"
+                value="1"
+              />
+              <button
+                id="button-7-idDetails"
+                style="margin-top: 10px; margin-bottom: 10px;"
+              >
+                Получить данные
+              </button>
+              <br />
+              <label for="typeTransaction"
+                >Выберите тип транзакции для просмотра общей суммы по
+                нему:</label
+              ><br />
 
-            <select
-              id="typeTransaction"
-              name="typeTransaction"
-              style="margin-top: 10px; width: 176px;"
-            >
-              <option value="deposit" selected>Депозит</option>
-              <option value="withdraw">Снятие средств</option></select
-            >
-            <button id="button-7-typeDetails" style="margin-top: 10px;">
-              Получить данные
-            </button>
-            <br />
-          </fieldset>
-        </form>
-        <div class="solution-7">Текущий баланс: 0</div>
-      </section>
+              <select
+                id="typeTransaction"
+                name="typeTransaction"
+                style="margin-top: 10px; width: 176px;"
+              >
+                <option value="deposit" selected>Депозит</option>
+                <option value="withdraw">Снятие средств</option></select
+              >
+              <button id="button-7-typeDetails" style="margin-top: 10px;">
+                Получить данные
+              </button>
+              <br />
+            </fieldset>
+          </form>
+          <div class="solution-7">Текущий баланс: 0</div>
+        </section>
+      </div>
     </main>
     <script src="./js/tinycon.min.js"></script>
     <script>
@@ -299,7 +265,7 @@
     </script>
     <script type="module" src="./js/task-01.js"></script>
     <script type="module" src="./js/task-02.js"></script>
-    <!--    <script type="module" src="./js/task-03.js"></script>-->
+    <script type="module" src="./js/task-03.js"></script>
     <!--    <script type="module" src="./js/task-04.js"></script>-->
     <!--    <script type="module" src="./js/task-05.js"></script>-->
     <!--    <script type="module" src="./js/task-06.js"></script>-->

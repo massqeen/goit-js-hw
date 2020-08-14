@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+img,
+video {
+  display: block;
+  max-width: 100%; }
+
+.header {
+  text-align: center; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.section-title {
+  text-align: center; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-inline-start: 0;
+  justify-items: center; }
+
+.gallery__list-item {
+  list-style: none; }
+
+.gallery__list-item > img {
+  object-fit: cover; }
+
+/*# sourceMappingURL=styles.css.map */

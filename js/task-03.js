@@ -1,55 +1,30 @@
-const button3 = document.getElementById('button-3'),
-  buttonSolve = document.getElementById('button-3-1'),
-  employees = {},
-  nameEmployee = document.getElementById('nameEmployee'),
-  solution3 = document.querySelector('.solution-3'),
-  tasksEmployee = document.getElementById('tasksEmployee');
-
-const findBestEmployee = (obj) => {
-  let bestEmployees = [],
-    maxTasks = 0;
-
-  for (const entry of Object.entries(obj)) {
-    if (maxTasks < entry[1]) {
-      bestEmployees = [];
-      maxTasks = +entry[1];
-      bestEmployees.push(entry[0]);
-    } else if (maxTasks === +entry[1]) {
-      bestEmployees.push(entry[0]);
-    }
+const galleryRef = document.getElementById('gallery');
+const images = [
+  {
+    url:
+      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: '"White and Black Long Fur Cat"'
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: '"Orange and White Koi Fish Near Yellow Koi Fish"'
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: '"Group of Horses Running"'
   }
-  if (bestEmployees.length > 1) {
-    return [
-      'Самые продуктивные сотрудники: ',
-      bestEmployees.join(', ') + '; ',
-      `выполнено ${maxTasks} задач.`
-    ];
-  }
-  return [
-    'Самый продуктивный сотрудник: ',
-    bestEmployees.join(', ') + '; ',
-    `выполнено ${maxTasks} задач.`
-  ];
-};
-const handleButton3Click = (event) => {
-  event.preventDefault();
-  Tinycon.setBubble(3);
-  employees[nameEmployee.value] = tasksEmployee.value;
-  console.log(employees);
-};
-const handleButtonSolveClick = () => {
-  const resultArray = findBestEmployee(employees);
-  solution3.textContent = '';
-  if (Object.keys(employees).length) {
-    solution3.insertAdjacentHTML(
-      'beforeend',
-      `<p>${resultArray[0]} <span class="task3-span">${resultArray[1]}</span>${resultArray[2]}</p>`
-    );
-    document.querySelector('.task3-span').style.color = '#2ac940';
-  } else {
-    alert('Внесите в базу хотя бы одного сотрудника!');
-  }
+];
+const createGalleryElement = (img) => {
+  const listItemRef = document.createElement('li');
+  listItemRef.classList.add('gallery__list-item');
+  listItemRef.insertAdjacentHTML(
+    'afterbegin',
+    `<img src=${img.url} alt=${img.alt} width="380" height="200">`
+  );
+  return listItemRef;
 };
 
-button3.addEventListener('click', handleButton3Click);
-buttonSolve.addEventListener('click', handleButtonSolveClick);
+const galleryElements = images.map((item) => createGalleryElement(item));
+galleryRef.append(...galleryElements);
