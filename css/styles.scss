@@ -12,6 +12,7 @@ img,
 video {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 .header {
   text-align: center;
@@ -28,11 +29,16 @@ video {
 }
 .gallery {
   display: grid;
-  place-content: space-between/center;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  align-items: stretch;
+  justify-items: center;
+  align-content: space-between;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(320px, max-content));
   gap: 10px;
   padding-inline-start: 0;
-  place-items: stretch/center;
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
 .gallery__list-item {
   list-style: none;
