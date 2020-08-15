@@ -36,7 +36,7 @@ const createGalleryElement = (img) => {
   listItemRef.classList.add('gallery__list-item');
   listItemRef.insertAdjacentHTML(
     'afterbegin',
-    `<img src=${img.url} alt=${img.alt} width="380" height="200">`
+    `<img src=${img.url} alt=${img.alt} >`
   );
   return listItemRef;
 };
