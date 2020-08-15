@@ -39,7 +39,18 @@ video {
 .gallery__list-item:hover img {
   transform: scale(1.05); }
 
-img {
-  object-fit: cover; }
+.gallery__list-item img {
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out; }
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+  outline: none; }
+
+#validation-input.valid {
+  border-color: #4caf50; }
+
+#validation-input.invalid {
+  border-color: #f44336; }
 
 /*# sourceMappingURL=styles.css.map */
