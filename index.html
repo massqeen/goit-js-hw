@@ -63,44 +63,11 @@
 
         <section class="task-4">
           <h2 class="section-title">Задание 4</h2>
-          <form action="#">
-            <fieldset>
-              <legend>Сумма зарплаты работников</legend>
-              <p style="max-width: 700px;">
-                Внесите данные по всем своим сотрудникам: занесите в форму имя
-                сотрудника и его зарплату, затем нажмите "Внести данные".
-                Процедуру необходимо повторить для каждого сотрудника. Для
-                определения общей суммы зарплаты нажмите "Вычислить"
-              </p>
-              <label for="nameEmployeeTask4"
-                >Введите имя сотрудника (должно быть уникально):</label
-              ><br />
-              <input
-                id="nameEmployeeTask4"
-                name="nameEmployee"
-                required
-                type="text"
-                minlength="2"
-              /><br />
-              <label for="salaryEmployee">Введите зарплату сотрудника:</label
-              ><br />
-              <input
-                id="salaryEmployee"
-                name="salaryEmployee"
-                required
-                type="number"
-                minlength="1"
-              /><br />
-              <button id="button-4" type="submit" style="margin-top: 10px;">
-                Внести данные
-              </button>
-              <br />
-            </fieldset>
-          </form>
-          <button id="button-4-1" style="margin-top: 10px;">
-            Вычислить
-          </button>
-          <div class="solution-4"></div>
+          <div id="counter">
+            <button type="button" data-action="decrement">-1</button>
+            <span id="value">0</span>
+            <button type="button" data-action="increment">+1</button>
+          </div>
         </section>
 
         <section class="task-5">
@@ -266,7 +233,7 @@
     <script type="module" src="./js/task-01.js"></script>
     <script type="module" src="./js/task-02.js"></script>
     <script type="module" src="./js/task-03.js"></script>
-    <!--    <script type="module" src="./js/task-04.js"></script>-->
+    <script type="module" src="./js/task-04.js"></script>
     <!--    <script type="module" src="./js/task-05.js"></script>-->
     <!--    <script type="module" src="./js/task-06.js"></script>-->
     <!--    <script type="module" src="./js/task-07.js"></script>-->

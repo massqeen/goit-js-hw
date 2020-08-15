@@ -16,22 +16,30 @@ video {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px; }
 
 .section-title {
   text-align: center; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  place-content: space-between/center;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
   padding-inline-start: 0;
-  justify-items: center; }
+  place-items: stretch/center; }
 
 .gallery__list-item {
-  list-style: none; }
+  list-style: none;
+  display: flex;
+  justify-content: center; }
 
-.gallery__list-item > img {
+.gallery__list-item:hover img {
+  transform: scale(1.05); }
+
+img {
   object-fit: cover; }
 
 /*# sourceMappingURL=styles.css.map */
