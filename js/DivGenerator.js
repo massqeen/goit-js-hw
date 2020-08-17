@@ -17,7 +17,7 @@ export default class DivGenerator {
   }
 
   resetDivDimensions = () => {
-    this._divDimension = 20;
+    this._divDimension = divDimension;
   };
 
   createBoxes(amount) {
