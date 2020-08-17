@@ -1,40 +1,19 @@
-import { users } from './users.js';
-import { UsersHandler } from './UsersHandler.js';
+import galleryItems from './gallery-items.js';
 
-const usersHandler = new UsersHandler();
+const galleryRef = document.querySelector('.js-gallery');
 
-// 1
-console.log('Задание 1: ', usersHandler.getUserNames(users));
-// 2
-console.log('Задание 2: ', usersHandler.getUsersWithEyeColor(users, 'blue'));
-// 3
-console.log('Задание 3: ', usersHandler.getUsersWithGender(users, 'male'));
-// 4
-console.log('Задание 4: ', usersHandler.getInactiveUsers(users));
-// 5
-console.log(
-  'Задание 5: ',
-  usersHandler.getUserWithEmail(users, 'shereeanthony@kog.com')
-);
-console.log(
-  'Задание 5: ',
-  usersHandler.getUserWithEmail(users, 'elmahead@omatom.com')
-);
-// 6
-console.log('Задание 6: ', usersHandler.getUsersWithAge(users, 20, 30));
-console.log('Задание 6: ', usersHandler.getUsersWithAge(users, 30, 40));
-// 7
-console.log('Задание 7: ', usersHandler.calculateTotalBalance(users));
-// 8
-console.log(
-  'Задание 8: ',
-  usersHandler.getUsersWithFriend(users, 'Briana Decker')
-);
-console.log(
-  'Задание 8: ',
-  usersHandler.getUsersWithFriend(users, 'Goldie Gentry')
-);
-// 9
-console.log('Задание 9: ', usersHandler.getNamesSortedByFriendsCount(users));
-// 10
-console.log('Задание 10: ', usersHandler.getSortedUniqueSkills(users));
+const createGalleryElement = (img) => {
+  const listItemRef = document.createElement('li');
+  listItemRef.classList.add('gallery__item');
+  const listLinkRef = document.createElement('a');
+  listLinkRef.classList.add('gallery__link');
+  listItemRef.appendChild(listLinkRef);
+  listLinkRef.insertAdjacentHTML(
+    'afterbegin',
+    `<img class="gallery__image" src=${img.preview} alt=\"${img.description}\" data-src=${img.original} data-id=${img.id}>`
+  );
+  return listItemRef;
+};
+
+const galleryElements = galleryItems.map((item) => createGalleryElement(item));
+galleryRef.append(...galleryElements);
