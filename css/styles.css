@@ -93,6 +93,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -116,12 +118,12 @@ body {
 .lightbox__button {
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   margin: 0;
   border: none;
@@ -131,7 +133,7 @@ body {
   cursor: pointer;
   transition: background-color 200ms ease-in-out;
   outline: none;
-  background-image: url('../images/icon-close.svg');
+  background-image: url('../images/close-button.svg');
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
