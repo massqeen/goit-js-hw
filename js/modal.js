@@ -14,7 +14,6 @@ const closeModalHandler = () => {
 };
 
 const modalEscapeHandler = (e) => {
-  console.log(e.code);
   if (e.code === 'Escape') {
     closeModalHandler();
   }
@@ -31,4 +30,4 @@ const backdropClickHandler = (e) => {
 };
 
 refs.openModal.addEventListener('click', openModalHandler);
-refs.backdrop.addEventListener('click', (e) => backdropClickHandler(e));
+refs.backdrop.addEventListener('click', backdropClickHandler);
