@@ -147,6 +147,31 @@ body.is-lock {
 .lightbox__button:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
+.lightbox-slider__btn {
+  position: absolute;
+  top: 50%;
+  width: 3.5rem;
+  height: 3.8rem;
+  background-color: #7098a0;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.lightbox-slider__btn--prev {
+  left: 0;
+  background-image: url('../images/prev.svg');
+}
+
+.lightbox-slider__btn--next {
+  right: 0;
+  background-image: url('../images/next.svg');
+}
+
+.lightbox-slider__btn--inactive {
+  background-color: rgba(85, 85, 85, 0.3);
+}
 
 @media (max-width: 767px) {
   .gallery {
