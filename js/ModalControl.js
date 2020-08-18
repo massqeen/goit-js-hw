@@ -1,29 +1,58 @@
 export default class ModalControl {
-  constructor(modalRef) {
+  constructor(modalRef, galleryItems) {
     this._modalRef = modalRef;
+    this._modalImageRef = this._modalRef.querySelector('.lightbox__image');
+    this._galleryItems = galleryItems;
+    this._imgId = 0;
+  }
+
+  get imgId() {
+    return this._imgId;
+  }
+
+  set imgId(value) {
+    this._imgId = +value;
   }
 
   openModal() {
     this.resetImgSrc();
     this.bodyLock();
     this._modalRef.classList.add('is-open');
-    window.addEventListener('keydown', this.escPressHandler);
+    window.addEventListener('keydown', this.keyPressHandler);
   }
 
-  escPressHandler = (e) => {
+  keyPressHandler = (e) => {
     if (e.code === 'Escape') {
-      window.removeEventListener('keydown', this.escPressHandler);
       this.closeModal();
+    }
+    if (e.code === 'ArrowRight' && this.imgId < this._galleryItems.length - 1) {
+      this.nextImage();
+    }
+    if (e.code === 'ArrowLeft' && this.imgId > 0) {
+      this.prevImage();
     }
   };
 
+  prevImage() {
+    this._modalImageRef.src = this._galleryItems[+this.imgId - 1].original;
+    this.imgId -= 1;
+    console.log(this.imgId);
+  }
+
+  nextImage() {
+    this._modalImageRef.src = this._galleryItems[+this.imgId + 1].original;
+    this.imgId += 1;
+    console.log(this.imgId);
+  }
+
   closeModal = () => {
+    window.removeEventListener('keydown', this.keyPressHandler);
     this._modalRef.classList.remove('is-open');
     this.bodyUnLock();
   };
 
   resetImgSrc() {
-    this._modalRef.querySelector('.lightbox__image').src = '';
+    this._modalImageRef.src = '';
   }
 
   bodyLock() {
