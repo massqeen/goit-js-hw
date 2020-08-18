@@ -24,6 +24,10 @@ body {
   color: #212121;
 }
 
+body.is-lock {
+  overflow: hidden;
+}
+
 .gallery {
   display: grid;
   max-width: 1200px;
