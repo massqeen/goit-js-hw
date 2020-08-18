@@ -23,7 +23,8 @@ const galleryClickHandler = (e) => {
 
 const lightboxClickHandler = (e) => {
   if (e.target.nodeName === 'BUTTON') {
-    modalControl.closeModal.call(modalControl);
+    modalControl.closeModal();
+
   }
 };
 
