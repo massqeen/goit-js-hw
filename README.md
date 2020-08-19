@@ -1,3 +1,3 @@
 # goit-js-hw
 
-JS homework-08
+Lazy Load images, using Intersection Observer API

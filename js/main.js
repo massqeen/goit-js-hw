@@ -1,35 +1,109 @@
-import ModalControl from './ModalControl.js';
-import galleryItems from './gallery-items.js';
-import GalleryGenerator from './GalleryGenerator.js';
+/*
+ * Олдскул со скролом
+ */
+// const images = document.querySelectorAll('.feed img');
 
-const refs = {
-  gallery: document.querySelector('.js-gallery'),
-  lightbox: document.querySelector('.js-lightbox'),
-  lightboxCloseButton: document.querySelector(
-    'button[data-action="close-lightbox"]'
-  )
+// lazyLoad();
+
+// window.addEventListener('scroll', lazyLoad);
+
+// function lazyLoad() {
+//   images.forEach(image => {
+//     console.log('💩 Выполянется callback-функция для scroll');
+
+//     const top = image.getBoundingClientRect().top;
+
+//     if (image.src === '' && top <= window.innerHeight) {
+//       const src = image.dataset.lazy;
+//       image.src = src;
+//       image.classList.add('appear');
+//     }
+//   });
+// }
+
+/*
+ * Intersection Observer с unobserve (один на все)
+ */
+const images = document.querySelectorAll('.feed img');
+
+const options = {
+  rootMargin: '100px'
 };
 
-const modalControl = new ModalControl(refs.lightbox, galleryItems);
-const galleryGenerator = new GalleryGenerator(galleryItems);
+const onEntry = (entries, observer) => {
+  console.log('🐷');
 
-refs.gallery.append(...galleryGenerator.createAllElements());
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const image = entry.target;
+      const src = image.dataset.lazy;
 
-const galleryClickHandler = (e) => {
-  if (e.target.nodeName === 'IMG') {
-    modalControl.imgId = +e.target.dataset.id;
-    modalControl.openModal();
-    const imgRef = refs.lightbox.querySelector('.lightbox__image');
-    imgRef.src = e.target.dataset.src;
-    imgRef.alt = e.target.alt;
-  }
+      image.src = src;
+      image.classList.add('appear');
+
+      observer.unobserve(image);
+    }
+  });
 };
 
-const lightboxClickHandler = (e) => {
-  if (e.target === refs.lightboxCloseButton) {
-    modalControl.closeModal();
-  }
-};
+const io = new IntersectionObserver(onEntry, options);
 
-refs.gallery.addEventListener('click', galleryClickHandler);
-refs.lightbox.addEventListener('click', lightboxClickHandler);
+[...images].forEach((image) => io.observe(image));
+
+// ===========================
+// const lazyLoad = targets => {
+//   const options = {
+//     rootMargin: '100px',
+//   };
+
+//   const onEntry = (entries, observer) => {
+//     console.log('🐷');
+
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         const image = entry.target;
+//         const src = image.dataset.lazy;
+
+//         image.src = src;
+//         image.classList.add('appear');
+
+//         observer.unobserve(image);
+//       }
+//     });
+//   };
+
+//   const io = new IntersectionObserver(onEntry, options);
+
+//   targets.forEach(target => io.observe(target));
+// };
+
+// lazyLoad(images);
+
+/*
+ * Intersection Observer с disconnect (на каждый свой)
+ */
+// const images = document.querySelectorAll('.feed img');
+
+// const lazyLoad = target => {
+//   const options = {
+//     rootMargin: '100px',
+//   };
+
+//   const io = new IntersectionObserver((entries, observer) => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         const image = entry.target;
+//         const src = image.dataset.lazy;
+
+//         image.src = src;
+//         image.classList.add('appear');
+
+//         observer.disconnect();
+//       }
+//     });
+//   }, options);
+
+//   io.observe(target);
+// };
+
+// images.forEach(image => lazyLoad(image));
