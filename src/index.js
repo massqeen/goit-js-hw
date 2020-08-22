@@ -1,6 +1,7 @@
-import ModalControl from './ModalControl.js';
-import galleryItems from './gallery-items.js';
-import GalleryGenerator from './GalleryGenerator.js';
+import './scss/main.scss';
+import ModalControl from './js/ModalControl';
+import galleryItems from './js/gallery-items';
+import GalleryGenerator from './js/GalleryGenerator';
 
 const refs = {
   gallery: document.querySelector('.js-gallery'),

@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "Arthur Plyuschevski <massqeen@gmail.com>",
-  "homepage": "git@github.com:massqeen/test.git",
+  "homepage": "git@github.com:massqeen/HW-08.git",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.4",
