@@ -1,7 +1,7 @@
 # goit-js-hw
 
-#JS homework-08
+#JS homework-10
 
-##Gallery of images, modal window with slider
+##JSON, Web Storage API, templating (Handlebars lib)
 
-[Production link](http://fls.guru/www/massqeen/hw08/)
+[Production link](http://fls.guru/www/massqeen/hw10/)

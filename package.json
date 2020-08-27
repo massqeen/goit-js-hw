@@ -1,5 +1,5 @@
 {
-  "name": "homework8",
+  "name": "homework10",
   "version": "1.0.0",
   "description": "educational project",
   "main": "index.js",
@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "Arthur Plyuschevski <massqeen@gmail.com>",
-  "homepage": "git@github.com:massqeen/hw-08.git",
+  "homepage": "git@github.com:massqeen/hw-10.git",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.4",
