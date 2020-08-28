@@ -1,13 +1,16 @@
 import './scss/main.scss';
-import markup from './js/templating';
-import './js/theme';
+import './js/markupIntegration';
+import Theme from './js/Theme';
+import './js/lazyLoad';
 
-const menuRef = document.querySelector('.js-menu');
-
-const insertMarkup = (el, html) => el.insertAdjacentHTML('beforeend', html);
-insertMarkup(menuRef, markup);
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.remove('light-theme');
-  document.body.classList.add('dark-theme');
-  document.querySelector('.js-switch-input').checked = true;
+const theme = new Theme(
+  '.js-switch-input',
+  'theme',
+  'light-theme',
+  'dark-theme'
+);
+if (theme.getThemeFromLocalStorage('theme') === 'dark-theme') {
+  theme.changeTheme('light-theme', 'dark-theme');
+  theme.$el.checked = true;
 }
+theme.init();

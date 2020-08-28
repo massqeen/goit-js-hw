@@ -43,7 +43,6 @@ body {
 
   &__icon {
     color: currentColor;
-    height: 26px;
     margin-right: 8px;
     margin-left: 8px;
   }
@@ -126,6 +125,10 @@ body {
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 24px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
 
 .card {
@@ -156,7 +159,7 @@ body {
     font-weight: 500;
   }
 
-  &__descr {
+  &__description {
     line-height: 1.5;
     flex-grow: 1;
   }
