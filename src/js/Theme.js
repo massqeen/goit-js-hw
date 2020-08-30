@@ -31,7 +31,7 @@ class Theme {
   }
 
   init() {
-    this.$el.addEventListener('click', this.switchClickHandler);
+    this.$el.addEventListener('change', this.switchClickHandler);
   }
 }
 
