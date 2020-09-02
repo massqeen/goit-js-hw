@@ -1,16 +1,32 @@
 import './scss/main.scss';
-import './js/markupIntegration';
-import Theme from './js/Theme';
-import './js/lazyLoad';
+import setColor from './js/setColor';
 
-const theme = new Theme(
-  '.js-switch-input',
-  'theme',
-  'light-theme',
-  'dark-theme'
-);
-if (theme.getThemeFromLocalStorage('theme') === 'dark-theme') {
-  theme.changeTheme('light-theme', 'dark-theme');
-  theme.$el.checked = true;
-}
-theme.init();
+const refs = {
+  body: document.querySelector('body'),
+  startBtn: document.querySelector('[data-action="start"]'),
+  stopBtn: document.querySelector('[data-action="stop"]')
+};
+const colors = [
+  '#FFFFFF',
+  '#2196F3',
+  '#4CAF50',
+  '#FF9800',
+  '#009688',
+  '#795548'
+];
+let id = null;
+
+const stopClickHandler = () => {
+  refs.startBtn.removeAttribute('disabled');
+  clearInterval(id);
+};
+
+const startClickHandler = () => {
+  refs.startBtn.setAttribute('disabled', 1);
+  id = setInterval(setColor, 1000, 0, colors.length - 1);
+};
+
+refs.startBtn.addEventListener('click', startClickHandler);
+refs.stopBtn.addEventListener('click', stopClickHandler);
+
+export { refs, colors };

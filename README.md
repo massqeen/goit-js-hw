@@ -1,7 +1,7 @@
 # goit-js-hw
 
-#JS homework-10
+#JS homework-11 Color switch
 
-##JSON, Web Storage API, templating (Handlebars lib)
+##Async JS, Promise, event loop
 
-[Production link](http://fls.guru/www/massqeen/hw10/)
+[Production link](http://fls.guru/www/massqeen/hw11-1/)
