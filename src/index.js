@@ -1,5 +1,5 @@
 import './scss/main.scss';
-import setColor from './js/setColor';
+import { setColors, timerId } from './js/setColor';
 
 const refs = {
   body: document.querySelector('body'),
@@ -14,16 +14,15 @@ const colors = [
   '#009688',
   '#795548'
 ];
-let id = null;
 
 const stopClickHandler = () => {
   refs.startBtn.removeAttribute('disabled');
-  clearInterval(id);
+  clearTimeout(timerId);
 };
 
 const startClickHandler = () => {
   refs.startBtn.setAttribute('disabled', 1);
-  id = setInterval(setColor, 1000, 0, colors.length - 1);
+  setColors(0, colors.length - 1);
 };
 
 refs.startBtn.addEventListener('click', startClickHandler);
