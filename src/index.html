@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,28 +10,28 @@
 
   <body>
     <div class="container">
-      <h1>
-        Промисификация
-      </h1>
-      <h2>Задание1</h2>
-      <p>
-        Напиши функцию delay(ms), которая возвращает промис, переходящий в
-        состояние "resolved" через ms миллисекунд. Значением исполнившегося
-        промиса должно быть то кол-во миллисекунд которое передали во время
-        вызова функции delay.
-      </p>
-      <h2>Задание2</h2>
-      <p>
-        Перепиши функцию toggleUserState() так, чтобы она не использовала
-        callback-функцию callback, а принимала всего два параметра allUsers и
-        userName и возвращала промис.
-      </p>
-      <h2>Задание3</h2>
-      <p>
-        Перепиши функцию makeTransaction() так, чтобы она не использовала
-        callback-функции onSuccess и onError, а принимала всего один параметр
-        transaction и возвращала промис.
-      </p>
+      <h1>The final countdown</h1>
+      <div class="timer" id="timer-1">
+        <div class="field">
+          <span class="value" data-value="days">11</span>
+          <span class="label">Days</span>
+        </div>
+        <span class="timer_divider">:</span>
+        <div class="field">
+          <span class="value" data-value="hours">11</span>
+          <span class="label">Hours</span>
+        </div>
+        <span class="timer_divider">:</span>
+        <div class="field">
+          <span class="value" data-value="minutes">11</span>
+          <span class="label">Minutes</span>
+        </div>
+        <span class="timer_divider">:</span>
+        <div class="field">
+          <span class="value" data-value="seconds">11</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
     </div>
   </body>
 </html>
