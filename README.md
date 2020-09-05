@@ -1,7 +1,7 @@
 # goit-js-hw
 
-#JS homework-11 Color switch
+#JS homework-12 Countries
 
-##Async JS, Promise, event loop
+##AJAX, Fetch API, REST API
 
-[Production link](http://fls.guru/www/massqeen/hw11-3/)
+[Production link](http://fls.guru/www/massqeen/hw12/)
