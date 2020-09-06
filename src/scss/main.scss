@@ -27,7 +27,22 @@ body {
 h1 {
   margin: 0 auto 50px auto;
   max-width: 500px;
+}
+
+h1,
+h2 {
   text-align: center;
 }
 
-@import 'gallery';
+img {
+  border: 1px solid grey;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.field {
+  font-weight: 700;
+}
