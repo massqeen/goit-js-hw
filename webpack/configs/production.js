@@ -2,10 +2,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = env => ({
-  devtool: 'source-map',
+module.exports = (env) => ({
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].[contenthash].js'
   },
   optimization: {
     moduleIds: 'hashed',
@@ -15,16 +14,16 @@ module.exports = env => ({
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
+          chunks: 'all'
+        }
+      }
+    }
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
         test: /\.scss$/,
@@ -32,10 +31,10 @@ module.exports = env => ({
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader',
-        ],
-      },
-    ],
+          'sass-loader'
+        ]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -46,13 +45,13 @@ module.exports = env => ({
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-      },
+        useShortDoctype: true
+      }
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      chunkFilename: '[name].[id].[contenthash].css',
+      chunkFilename: '[name].[id].[contenthash].css'
     }),
-    new OptimizeCssAssetsPlugin({}),
-  ],
+    new OptimizeCssAssetsPlugin({})
+  ]
 });
