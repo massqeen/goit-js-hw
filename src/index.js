@@ -1,52 +1,41 @@
 import './scss/main.scss';
 const debounce = require('lodash/debounce');
 import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/mobile/dist/PNotifyMobile.css';
+
 import '@pnotify/core/dist/BrightTheme.css';
 import updateCountriesMarkup from './js/updateCountriesMarkup';
-import cardTemplate from './templates/countryCard.hbs';
-
 import { defaultModules } from '@pnotify/core/dist/PNotify.js';
-import { alert, notice, info, success, error } from '@pnotify/core';
-import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
-import * as PNotifyCountdown from '@pnotify/countdown';
+
 import * as PNotifyAnimate from '@pnotify/animate';
 import fetchCountry from './js/fetch';
 import refs from './js/refs';
+import { searchError, searchErrorNotFound } from './js/notifyErrors';
 
-// const myNotice = notice({
-//   text: "I'm a notice.",
+const inputHandler = ({ target: { value } }) => {
+  value &&
+    fetchCountry(value)
+      .then((countries) => {
+        if (countries.length <= 10) {
+          updateCountriesMarkup(countries);
+        } else if (countries.length > 10) {
+          searchError();
+        }
+      })
+      .catch((err) => {
+        searchErrorNotFound(err);
+      });
+};
+refs.search.addEventListener('input', debounce(inputHandler, 800));
+// notice({
+//   text: 'I use the Animate module in addition to the defaults.',
 //   modules: new Map([
 //     ...defaultModules,
 //     [
-//       PNotifyMobile,
-//       {
-//         // Mobile Module Options
-//       },
-//       PNotifyCountdown,
-//       {
-//         // Countdown Module Options
-//       },
 //       PNotifyAnimate,
 //       {
-//         // Animate Module Options
+//         inClass: 'fadeInDown',
+//         outClass: 'fadeOutUp'
 //       }
 //     ]
 //   ])
 // });
-// PNotifyMobile.defaults = {
-//   swipeDismiss: true
-// };
-// defaultModules.set(PNotifyMobile, {});
-alert('Notice me, senpai!');
-const inputHandler = ({ target }) => {
-  target.value &&
-    fetchCountry(target.value).then((countries) => {
-      if (countries.length > 10) {
-        console.log('too much');
-        return;
-      }
-      updateCountriesMarkup(countries);
-    });
-};
-refs.search.addEventListener('input', debounce(inputHandler, 500));

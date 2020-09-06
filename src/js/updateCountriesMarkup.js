@@ -5,12 +5,10 @@ import refs from './refs';
 function updateCountriesMarkup(countries) {
   if (countries.length === 1) {
     refs.countriesList.innerHTML = '';
-    const markup = countryCardTmpl(countries[0]);
-    refs.card.innerHTML = markup;
+    refs.card.innerHTML = countryCardTmpl(countries[0]);
   } else {
     refs.card.innerHTML = '';
-    const markup = countryItemsTmpl(countries);
-    refs.countriesList.innerHTML = markup;
+    refs.countriesList.innerHTML = countryItemsTmpl(countries);
   }
 }
 

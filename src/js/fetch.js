@@ -1,7 +1,12 @@
 const fetchCountry = (countryName) => {
   return fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
-    .then((res) => res.json())
-    .then((data) => data)
-    .catch((err) => console.log(err));
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Could not find country');
+      } else {
+        return res.json();
+      }
+    })
+    .then((data) => data);
 };
 export default fetchCountry;
