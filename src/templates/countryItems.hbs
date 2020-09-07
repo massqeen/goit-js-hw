@@ -1,1 +1,7 @@
-{{#each this}}<li class="country-item">{{name}}</li>{{/each}}
+{{#each this}}
+<li class="country-item">
+    <a class="country-name" href="{{name}}" onclick="event.preventDefault()">
+        {{name}}
+    </a>
+</li>
+{{/each}}

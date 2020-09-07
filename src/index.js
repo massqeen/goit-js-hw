@@ -16,6 +16,7 @@ const inputHandler = ({ target: { value } }) => {
   fetchCountry(value)
     .then((countries) => {
       if (countries.length <= 10) {
+        console.log(countries);
         updateCountriesMarkup.show(countries);
         return;
       }
@@ -26,4 +27,13 @@ const inputHandler = ({ target: { value } }) => {
     });
 };
 
+const listClickHandler = (e) => {
+  if (e.target.nodeName === 'A') {
+    fetchCountry(e.target.innerText).then((country) =>
+      updateCountriesMarkup.show(country)
+    );
+  }
+};
+
 refs.search.addEventListener('input', debounce(inputHandler, 800));
+refs.countriesList.addEventListener('click', listClickHandler);
