@@ -1,4 +1,5 @@
 import { error } from '@pnotify/core';
+
 const searchError = () =>
   error({
     text: 'Too many matches found. Please enter more specific query.',
