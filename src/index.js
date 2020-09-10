@@ -1,16 +1,18 @@
 import './scss/main.scss';
-import './js/markupIntegration';
-import Theme from './js/Theme';
-import './js/lazyLoad';
+import imagesTemplate from './templates/images.hbs';
+// import './js/lazyLoad';
 
-const theme = new Theme(
-  '.js-switch-input',
-  'theme',
-  'light-theme',
-  'dark-theme'
-);
-if (theme.getThemeFromLocalStorage('theme') === 'dark-theme') {
-  theme.changeTheme('light-theme', 'dark-theme');
-  theme.$el.checked = true;
-}
-theme.init();
+const API_KEY = '18257903-4453e2975e3dd917fd04b41f9';
+const url = `https://pixabay.com/api/?key=${API_KEY}`;
+const refs = {
+  gallery: document.querySelector('.gallery')
+};
+
+fetch(`${url}&editors_choice&per_page=10`)
+  .then((res) => res.json())
+  .then(({ hits }) => {
+    console.log(hits);
+    const markup = imagesTemplate(hits);
+    console.log(markup);
+    refs.gallery.innerHTML = markup;
+  });
