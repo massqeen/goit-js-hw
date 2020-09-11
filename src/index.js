@@ -1,28 +1,32 @@
 import './scss/main.scss';
 // import './js/lazyLoad';
-import fetchImages from './js/fetchImages';
+import imagesService from './js/imagesAPI-service';
 import updateImagesMarkup from './js/updateImagesMarkup';
 import refs from './js/refs';
+import { searchError, searchErrorNotFound } from './js/notifyErrors';
+import Loader from './js/components/Loader';
 
-const options = {
-  apiKey: '18257903-4453e2975e3dd917fd04b41f9',
-  baseUrl: 'https://pixabay.com/api/',
-  perPage: 20,
-  editorsChoice: false
-};
+const loader = new Loader('.js-loader', 'is-hidden');
 
-fetchImages('', {
-  ...options,
-  perPage: 10,
-  editorChoice: true
-}).then(updateImagesMarkup);
+imagesService.fetchImages().then((images) => {
+  updateImagesMarkup.show(images);
+  imagesService.editors = false;
+  imagesService.imagesPerPage = 12;
+});
 
 const submitHandler = (e) => {
   e.preventDefault();
-  const inputValue = e.currentTarget.elements.query.value;
-  refs.gallery.innerHTML = '';
-  fetchImages(inputValue, options).then(updateImagesMarkup);
+  updateImagesMarkup.reset();
+  imagesService.query = e.currentTarget.elements.query.value;
+  imagesService.resetPage();
+  imagesService.fetchImages().then(updateImagesMarkup.show);
   e.currentTarget.reset();
 };
 
+const loadMoreClickHandler = (e) => {
+  e.preventDefault();
+  imagesService.fetchImages().then(updateImagesMarkup.show);
+};
+
 refs.searchForm.addEventListener('submit', submitHandler);
+refs.loadMore.addEventListener('click', loadMoreClickHandler);

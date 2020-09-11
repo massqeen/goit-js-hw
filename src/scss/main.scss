@@ -93,3 +93,8 @@ body {
     min-height: 200px;
   }
 }
+.load-more {
+  width: 100px;
+  height: 30px;
+}
+@import './components/loader';
