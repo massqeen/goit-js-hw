@@ -9,6 +9,7 @@ import updateImagesMarkup from './js/updateImagesMarkup';
 import refs from './js/refs';
 import Loader from './js/components/Loader';
 import updateLightboxMarkup from './js/updateLightboxMarkup';
+import { bodyLock, bodyUnlock } from './js/bodyLockAndUnlock';
 
 const loader = new Loader('.js-loader', 'is-hidden');
 
@@ -40,7 +41,11 @@ const galleryClickHandler = ({ target }) => {
   if (target.nodeName === 'IMG') {
     basicLightbox
       .create(
-        updateLightboxMarkup(target.dataset.source, target.getAttribute('alt'))
+        updateLightboxMarkup(target.dataset.source, target.getAttribute('alt')),
+        {
+          onShow: () => bodyLock(),
+          onClose: () => bodyUnlock()
+        }
       )
       .show();
   }
