@@ -1,3 +1,5 @@
+import searchErrorNotFound from './components/notifyErrors';
+
 const imagesService = {
   searchQuery: '',
   apiKey: '18257903-4453e2975e3dd917fd04b41f9',
@@ -34,11 +36,14 @@ const imagesService = {
     )
       .then((res) => res.json())
       .then(({ hits: images }) => {
+        if (!images.length) {
+          throw new Error('Unfortunately, your request not found.');
+        }
         this.incrementPage();
         return images;
       })
       .catch((err) => {
-        console.log(err);
+        searchErrorNotFound(err);
       });
   }
 };

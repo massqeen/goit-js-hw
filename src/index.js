@@ -1,9 +1,11 @@
 import './scss/main.scss';
-// import './js/lazyLoad';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
+import './js/components/lazyLoad';
 import imagesService from './js/imagesAPI-service';
 import updateImagesMarkup from './js/updateImagesMarkup';
 import refs from './js/refs';
-import { searchError, searchErrorNotFound } from './js/notifyErrors';
+import searchErrorNotFound from './js/components/notifyErrors';
 import Loader from './js/components/Loader';
 
 const loader = new Loader('.js-loader', 'is-hidden');
@@ -17,9 +19,13 @@ imagesService.fetchImages().then((images) => {
 const submitHandler = (e) => {
   e.preventDefault();
   updateImagesMarkup.reset();
+  loader.show();
   imagesService.query = e.currentTarget.elements.query.value;
   imagesService.resetPage();
-  imagesService.fetchImages().then(updateImagesMarkup.show);
+  imagesService
+    .fetchImages()
+    .then(updateImagesMarkup.show)
+    .finally(() => loader.hide());
   e.currentTarget.reset();
 };
 
