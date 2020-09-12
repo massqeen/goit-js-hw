@@ -1,12 +1,14 @@
 import './scss/main.scss';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
+import 'basiclightbox/dist/basicLightbox.min.css';
 import './js/components/lazyLoad';
+import * as basicLightbox from 'basiclightbox';
 import imagesService from './js/imagesAPI-service';
 import updateImagesMarkup from './js/updateImagesMarkup';
 import refs from './js/refs';
-import searchErrorNotFound from './js/components/notifyErrors';
 import Loader from './js/components/Loader';
+import updateLightboxMarkup from './js/updateLightboxMarkup';
 
 const loader = new Loader('.js-loader', 'is-hidden');
 
@@ -34,5 +36,16 @@ const loadMoreClickHandler = (e) => {
   imagesService.fetchImages().then(updateImagesMarkup.show);
 };
 
+const galleryClickHandler = ({ target }) => {
+  if (target.nodeName === 'IMG') {
+    basicLightbox
+      .create(
+        updateLightboxMarkup(target.dataset.source, target.getAttribute('alt'))
+      )
+      .show();
+  }
+};
+
 refs.searchForm.addEventListener('submit', submitHandler);
 refs.loadMore.addEventListener('click', loadMoreClickHandler);
+refs.gallery.addEventListener('click', galleryClickHandler);

@@ -40,6 +40,7 @@ const imagesService = {
           throw new Error('Unfortunately, your request not found.');
         }
         this.incrementPage();
+        console.log(images);
         return images;
       })
       .catch((err) => {
