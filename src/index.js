@@ -1,7 +1,6 @@
 import './scss/main.scss';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
-import 'basiclightbox/dist/basicLightbox.min.css';
 import throttle from 'lodash.throttle';
 import refs from './js/refs';
 import imagesService from './js/imagesAPI-service';
