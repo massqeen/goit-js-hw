@@ -2,19 +2,23 @@ import './scss/main.scss';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import './js/components/lazyLoad';
-import * as basicLightbox from 'basiclightbox';
+import throttle from 'lodash.throttle';
+import refs from './js/refs';
 import imagesService from './js/imagesAPI-service';
 import updateImagesMarkup from './js/updateImagesMarkup';
-import refs from './js/refs';
 import Loader from './js/components/Loader';
-import updateLightboxMarkup from './js/updateLightboxMarkup';
-import { bodyLock, bodyUnlock } from './js/bodyLockAndUnlock';
+import lazyLoad from './js/components/lazyLoad';
+import loadOnScroll from './js/components/loadOnScroll';
+import scrollToTop from './js/components/scrollToTop';
+import isVisible from './js/components/isScrollBtnVisible';
+
+import showLightbox from './js/showLightbox';
 
 const loader = new Loader('.js-loader', 'is-hidden');
 
 imagesService.fetchImages().then((images) => {
   updateImagesMarkup.show(images);
+  lazyLoad();
   imagesService.editors = false;
   imagesService.imagesPerPage = 12;
 });
@@ -27,30 +31,31 @@ const submitHandler = (e) => {
   imagesService.resetPage();
   imagesService
     .fetchImages()
-    .then(updateImagesMarkup.show)
+    .then((images) => {
+      updateImagesMarkup.show(images);
+      lazyLoad();
+      loadOnScroll();
+    })
     .finally(() => loader.hide());
   e.currentTarget.reset();
 };
 
-const loadMoreClickHandler = (e) => {
-  e.preventDefault();
-  imagesService.fetchImages().then(updateImagesMarkup.show);
-};
-
 const galleryClickHandler = ({ target }) => {
   if (target.nodeName === 'IMG') {
-    basicLightbox
-      .create(
-        updateLightboxMarkup(target.dataset.source, target.getAttribute('alt')),
-        {
-          onShow: () => bodyLock(),
-          onClose: () => bodyUnlock()
-        }
-      )
-      .show();
+    const imageElArr = Array.from(
+      refs.gallery.querySelectorAll('.gallery-image')
+    );
+    const imageSrcArr = imageElArr.map((image) => image.dataset.source);
+    const currentTargetId = imageSrcArr.findIndex(
+      (value) => value === target.dataset.source
+    );
+    showLightbox(imageSrcArr, currentTargetId);
   }
 };
 
 refs.searchForm.addEventListener('submit', submitHandler);
-refs.loadMore.addEventListener('click', loadMoreClickHandler);
 refs.gallery.addEventListener('click', galleryClickHandler);
+refs.toTop.addEventListener('click', function () {
+  scrollToTop(1);
+});
+window.addEventListener('scroll', throttle(isVisible, 500));

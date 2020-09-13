@@ -29,6 +29,7 @@
     "eslint": "^7.7.0",
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "fslightbox": "^3.2.1",
     "gh-pages": "^2.2.0",
     "handlebars-loader": "^1.7.1",
     "html-loader": "^0.5.5",
@@ -48,9 +49,9 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
-    "basiclightbox": "^5.0.3",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
+    "lodash.throttle": "^4.1.1",
     "node-gyp": "^7.1.0"
   }
 }
