@@ -1,7 +1,5 @@
-# goit-js-hw
+# JS homework "Pixabay image finder"
 
-#JS homework-13
-
-##Async/await, CRUD
+##Fetch, Pixabay API, CRUD, infinite scroll (Intersection Observer API), Lodash throttle, Handlebars, pnotify, fslightbox, back-to-top, smooth scrolling
 
 [Production link](http://fls.guru/www/massqeen/hw13/)
